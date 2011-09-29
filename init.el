@@ -54,6 +54,23 @@
      (color-theme-initialize)
      (color-theme-zen-and-art)))
 
+;;; dired   -----------------------------------------------------
+(defun uenox-dired-winstart ()
+  "Type '\\[uenox-dired-winstart]': win-start the current line's file."
+  (interactive)
+  (if (eq major-mode 'dired-mode)
+      (let ((fname (dired-get-filename)))
+	(call-process-shell-command (concat "open \"" fname "\"")) ;;mac用
+        (message "opening... %s" fname)
+)))
+; dired のキー割り当て追加
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map "z" 'uenox-dired-winstart))) 
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map "\C-t" 'other-window))) 
+
 ;;; anything  ---------------------------------------------------
 (require 'anything-startup)
 (require 'recentf-ext)
