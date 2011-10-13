@@ -46,14 +46,6 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 
-;;; color-themer
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/color-theme"))
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-zen-and-art)))
-
 ;;; dired   -----------------------------------------------------
 (defun uenox-dired-winstart ()
   "Type '\\[uenox-dired-winstart]': win-start the current line's file."
@@ -63,10 +55,12 @@
 	(call-process-shell-command (concat "open \"" fname "\"")) ;;mac用
         (message "opening... %s" fname)
 )))
-; dired のキー割り当て追加
+; dired のキー割り当て追加。zキーを押すと、
+; Macに関連付けられたアプリケーションでファイルを開けるようにする。
 (add-hook 'dired-mode-hook
           (lambda ()
             (define-key dired-mode-map "z" 'uenox-dired-winstart))) 
+; dired-mode時もバッファ切替をC-tでできるようにする
 (add-hook 'dired-mode-hook
           (lambda ()
             (define-key dired-mode-map "\C-t" 'other-window))) 
@@ -190,10 +184,6 @@ and source-file directory for your debugger." t)
 (autoload 'turn-on-vtl-mode "vtl" nil t)
 (add-to-list 'auto-mode-alist '("\\.vm$" . turn-on-vtl-mode))
 
-;;; nav ----------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/emacs-nav")
-(require 'nav)
-
 ;;; auto-complete ------------------------------------------------
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -211,6 +201,7 @@ and source-file directory for your debugger." t)
 (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
 
 ;;; espresso-mode ------------------------------------------------
+; jQueryのインデントが思うようにいかない時に使用
 (add-to-list 'auto-mode-alist '("\\.js\\'" . espresso-mode))
 (autoload 'espresso-mode "espresso" nil t)
 
@@ -220,5 +211,21 @@ and source-file directory for your debugger." t)
 (when (require 'undo-tree nil t) (global-undo-tree-mode))
 
 ;;; geben  -------------------------------------------------------
+; MAMPでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
+
+;;; apel  --------------------------------------------------------
+; elscreen用
+(add-to-list 'load-path "~/.emacs.d/apel")
+
+;;; elscreen -----------------------------------------------------
+; バッファの状態を保持したいときに使う
+; C-z n   : 次のスクリーン
+; C-z p   : 前のスクリーン
+; C-z c   : 新しいスクリーン作成
+; C-z k   : 現在のスクリーン削除
+; C-z A   : スクリーンの名前変更
+; C-z 0..9: スクリーン0-9選択
+(add-to-list 'load-path "~/.emacs.d/elscreen")
+(require 'elscreen)
