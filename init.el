@@ -214,18 +214,3 @@ and source-file directory for your debugger." t)
 ; MAMPでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
-
-;;; apel  --------------------------------------------------------
-; elscreen用
-(add-to-list 'load-path "~/.emacs.d/apel")
-
-;;; elscreen -----------------------------------------------------
-; バッファの状態を保持したいときに使う
-; C-z n   : 次のスクリーン
-; C-z p   : 前のスクリーン
-; C-z c   : 新しいスクリーン作成
-; C-z k   : 現在のスクリーン削除
-; C-z A   : スクリーンの名前変更
-; C-z 0..9: スクリーン0-9選択
-(add-to-list 'load-path "~/.emacs.d/elscreen")
-(require 'elscreen)
