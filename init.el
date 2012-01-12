@@ -184,9 +184,58 @@ and source-file directory for your debugger." t)
 (autoload 'turn-on-vtl-mode "vtl" nil t)
 (add-to-list 'auto-mode-alist '("\\.vm$" . turn-on-vtl-mode))
 
+;;; Objective-C Mode ---------------------------------------------
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
+
+;;; ffap ---------------------------------------------------------
+(ffap-bindings)
+(setq ffap-newfile-prompt t)
+(setq ffap-kpathsea-depth 5)
+
+(setq ff-other-file-alist
+     '(("\\.mm?$" (".h"))
+       ("\\.cc$"  (".hh" ".h"))
+       ("\\.hh$"  (".cc" ".C"))
+       ("\\.c$"   (".h"))
+       ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m" ".mm"))
+       ("\\.C$"   (".H"  ".hh" ".h"))
+       ("\\.H$"   (".C"  ".CC"))
+       ("\\.CC$"  (".HH" ".H"  ".hh" ".h"))
+       ("\\.HH$"  (".CC"))
+       ("\\.cxx$" (".hh" ".h"))
+       ("\\.cpp$" (".hpp" ".hh" ".h"))
+       ("\\.hpp$" (".cpp" ".c"))))
+(add-hook 'objc-mode-hook
+         (lambda ()
+           (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)
+         ))
+
 ;;; auto-complete ------------------------------------------------
 (require 'auto-complete)
+
+(require 'auto-complete-config)
 (global-auto-complete-mode t)
+
+(add-to-list 'load-path "~/.emacs.d/company")
+(require 'ac-company)
+
+(ac-company-define-source ac-source-company-xcode company-xcode)
+(setq ac-modes (append ac-modes '(objc-mode)))
+(add-hook 'objc-mode-hook
+         (lambda ()
+           (define-key objc-mode-map (kbd "\t") 'ac-complete)
+           (push 'ac-source-company-xcode ac-sources)
+         ))
+
+(define-key ac-completing-map (kbd "C-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)
+(define-key ac-completing-map (kbd "M-/") 'ac-stop)
+
+(setq ac-auto-start nil)
+(ac-set-trigger-key "TAB")
+(setq ac-candidate-max 20)
 
 ;;; yasnippet  ---------------------------------------------------
 (require 'yasnippet-bundle)
@@ -214,3 +263,7 @@ and source-file directory for your debugger." t)
 ; MAMPでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
+
+;;; dsvn ---------------------------------------------------------
+(autoload 'svn-status "dsvn" "Run `svn status'." t)
+(autoload 'svn-update "dsvn" "Run `svn update'." t)
