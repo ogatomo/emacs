@@ -1,0 +1,38 @@
+#name : CCLayer extend class *.m file
+# --
+#import "${1:id}Layer.h"
+
+@implementation $1Layer
+
++(CCScene *) scene
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	$1Layer *layer = [$1Layer node];
+	
+	// add layer as a child to scene
+	[scene addChild: layer];
+	
+	// return the scene
+	return scene;
+}
+
+// on "init" you need to initialize your instance
+-(id) init
+{
+	if( (self=[super init])) {
+	}
+
+	return self;
+}
+
+// on "dealloc" you need to release all your retained objects
+- (void) dealloc
+{
+	[super dealloc];
+}
+
+@end
+$0

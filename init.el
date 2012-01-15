@@ -191,24 +191,17 @@ and source-file directory for your debugger." t)
        ("\\.hpp$" (".cpp" ".c"))))
 
 ;;; auto-complete ------------------------------------------------
-(require 'auto-complete)
-
 (require 'auto-complete-config)
+
 (global-auto-complete-mode t)
-
-(add-to-list 'load-path "~/.emacs.d/company")
-(require 'ac-company)
-
-(ac-company-define-source ac-source-company-xcode company-xcode)
-(setq ac-modes (append ac-modes '(objc-mode)))
-
-(define-key ac-completing-map (kbd "C-n") 'ac-next)
-(define-key ac-completing-map (kbd "C-p") 'ac-previous)
-(define-key ac-completing-map (kbd "M-/") 'ac-stop)
-
-(setq ac-auto-start nil)
 (ac-set-trigger-key "TAB")
+(setq ac-auto-start nil)
 (setq ac-candidate-max 20)
+
+(setq ac-modes (append ac-modes '(objc-mode)))
+(global-set-key "\M-/" 'ac-start)
+(define-key ac-complete-mode-map "\C-n" 'ac-next)
+(define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
 ;;; Objective-C Mode ---------------------------------------------
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
@@ -220,8 +213,7 @@ and source-file directory for your debugger." t)
 	    ;; auto-complate
 	    ; 自動補完
 	    (define-key objc-mode-map (kbd "\t") 'ac-complete)
-	    (push 'ac-source-company-xcode ac-sources)
-
+	    
 	    ;; ffap
 	    ; ヘッダーとmainファイル切り替え
 	    (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)
