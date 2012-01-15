@@ -29,19 +29,6 @@
 (setq hl-line-face 'underline)
 (global-hl-line-mode)
 
-;; ;;; クリップボードを共有(MAC OSX専用)
-;; (defun copy-from-osx ()
-;;  (shell-command-to-string "pbpaste"))
-
-;; (defun paste-to-osx (text &optional push)
-;;  (let ((process-connection-type nil))
-;;      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;;        (process-send-string proc text)
-;;        (process-send-eof proc))))
-
-;; (setq interprogram-cut-function 'paste-to-osx)
-;; (setq interprogram-paste-function 'copy-from-osx)
-
 ;;; elisp path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
@@ -231,20 +218,21 @@ and source-file directory for your debugger." t)
 (add-hook 'objc-mode-hook
           (lambda ()
 	    ;; auto-complate
+	    ; 自動補完
 	    (define-key objc-mode-map (kbd "\t") 'ac-complete)
 	    (push 'ac-source-company-xcode ac-sources)
 
 	    ;; ffap
+	    ; ヘッダーとmainファイル切り替え
 	    (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)
 
 	    ;; xcode
-            (define-key objc-mode-map "\C-c\C-b" 'compile)
+	    ; 実行
             (define-key objc-mode-map "\C-c\C-r" 'run)
             (define-key objc-mode-map "\C-c\C-x" 'xcode)
             (define-key objc-mode-map "\C-c\C-d" 'doc)
             (define-key objc-mode-map "\C-c\C-c" 'comment-region)
             (define-key objc-mode-map "\C-cc"    'uncomment-region)
-            (setq compile-command "xcodebuild -project ../*.xcodeproj -configuration Debug -sdk iphonesimulator4.3 ")
             (setq compilation-scroll-output t)))
 (defun doc ()
 	(interactive)
@@ -283,11 +271,5 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
 
-;;; dsvn ---------------------------------------------------------
-(autoload 'svn-status "dsvn" "Run `svn status'." t)
-(autoload 'svn-update "dsvn" "Run `svn update'." t)
-
-;;; emacs-w3m ----------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/emacs-w3m")
-(setq w3m-command "/opt/local/bin/w3m")
-(require 'w3m)
+;;; github-code-search -------------------------------------------
+(require 'github-search)
