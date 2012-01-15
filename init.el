@@ -184,11 +184,6 @@ and source-file directory for your debugger." t)
 (autoload 'turn-on-vtl-mode "vtl" nil t)
 (add-to-list 'auto-mode-alist '("\\.vm$" . turn-on-vtl-mode))
 
-;;; Objective-C Mode ---------------------------------------------
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
-
 ;;; ffap ---------------------------------------------------------
 (ffap-bindings)
 (setq ffap-newfile-prompt t)
@@ -207,10 +202,6 @@ and source-file directory for your debugger." t)
        ("\\.cxx$" (".hh" ".h"))
        ("\\.cpp$" (".hpp" ".hh" ".h"))
        ("\\.hpp$" (".cpp" ".c"))))
-(add-hook 'objc-mode-hook
-         (lambda ()
-           (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)
-         ))
 
 ;;; auto-complete ------------------------------------------------
 (require 'auto-complete)
@@ -223,11 +214,6 @@ and source-file directory for your debugger." t)
 
 (ac-company-define-source ac-source-company-xcode company-xcode)
 (setq ac-modes (append ac-modes '(objc-mode)))
-(add-hook 'objc-mode-hook
-         (lambda ()
-           (define-key objc-mode-map (kbd "\t") 'ac-complete)
-           (push 'ac-source-company-xcode ac-sources)
-         ))
 
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
@@ -236,6 +222,39 @@ and source-file directory for your debugger." t)
 (setq ac-auto-start nil)
 (ac-set-trigger-key "TAB")
 (setq ac-candidate-max 20)
+
+;;; Objective-C Mode ---------------------------------------------
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
+(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
+
+(add-hook 'objc-mode-hook
+          (lambda ()
+	    ;; auto-complate
+	    (define-key objc-mode-map (kbd "\t") 'ac-complete)
+	    (push 'ac-source-company-xcode ac-sources)
+
+	    ;; ffap
+	    (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)
+
+	    ;; xcode
+            (define-key objc-mode-map "\C-c\C-b" 'compile)
+            (define-key objc-mode-map "\C-c\C-r" 'run)
+            (define-key objc-mode-map "\C-c\C-x" 'xcode)
+            (define-key objc-mode-map "\C-c\C-d" 'doc)
+            (define-key objc-mode-map "\C-c\C-c" 'comment-region)
+            (define-key objc-mode-map "\C-cc"    'uncomment-region)
+            (setq compile-command "xcodebuild -project ../*.xcodeproj -configuration Debug -sdk iphonesimulator4.3 ")
+            (setq compilation-scroll-output t)))
+(defun doc ()
+	(interactive)
+  (shell-command-to-string "~/.emacs.d/sh/xcode-show-doc.sh"))
+(defun xcode ()
+	(interactive)
+  (shell-command-to-string "~/.emacs.d/sh/xcode-show-proj.sh"))
+(defun run ()
+  (interactive)
+  (shell-command-to-string "~/.emacs.d/sh/xcode-run.sh"))
 
 ;;; yasnippet  ---------------------------------------------------
 (require 'yasnippet-bundle)
@@ -267,3 +286,8 @@ and source-file directory for your debugger." t)
 ;;; dsvn ---------------------------------------------------------
 (autoload 'svn-status "dsvn" "Run `svn status'." t)
 (autoload 'svn-update "dsvn" "Run `svn update'." t)
+
+;;; emacs-w3m ----------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/emacs-w3m")
+(setq w3m-command "/opt/local/bin/w3m")
+(require 'w3m)
