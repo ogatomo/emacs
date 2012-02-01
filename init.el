@@ -23,6 +23,7 @@
 ;;; キー設定
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
 (define-key global-map "\C-c;" 'comment-or-uncomment-region) ;範囲選択後のコメントイン・コメントアウト切替
+(define-key global-map [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
 
 ;;; 下線をつける
 (setq hl-line-face 'hlline-face)
