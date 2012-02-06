@@ -18,6 +18,8 @@
 ;;; ツールバーを非表示
 (menu-bar-mode nil)
 
+(scroll-bar-mode nil)
+
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode 1)
 
