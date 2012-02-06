@@ -13,7 +13,8 @@
 
 ;;; カラムを見やすくする
 (custom-set-variables '(line-number-mode t)
-		            '(column-number-mode t))
+		      '(column-number-mode t))
+
 ;;; ツールバーを非表示
 (menu-bar-mode nil)
 
@@ -272,3 +273,7 @@ and source-file directory for your debugger." t)
 
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
+
+;;; linum --------------------------------------------------------
+(require 'wb-line-number)
+
