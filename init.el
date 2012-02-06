@@ -60,7 +60,9 @@
 (setq anything-sources (list anything-c-source-buffers
                              anything-c-source-recentf
                              anything-c-source-bookmarks
-			     anything-c-source-files-in-current-dir+))
+                             anything-c-source-imenu
+                             anything-c-source-files-in-current-dir+))
+
 (define-key anything-map (kbd "C-p") 'anything-previous-line)
 (define-key anything-map (kbd "C-n") 'anything-next-line)
 (define-key anything-map (kbd "C-v") 'anything-next-source)
