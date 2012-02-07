@@ -15,10 +15,32 @@
 (custom-set-variables '(line-number-mode t)
 		      '(column-number-mode t))
 
+
+;; ウィンドウサイズの位置、サイズ
+(if window-system (progn
+  (setq initial-frame-alist '((width . 210)(height . 53)(top . 0)(left . 48)))
+  (set-background-color "Black")
+  (set-foreground-color "White")
+  (set-cursor-color "Gray")
+
+  ;;; スクロールバーを非表示
+  (scroll-bar-mode nil)
+
+  ;;; スクロールを１行づつ
+  (setq scroll-step 1)
+
+  ;; タイトルバーにファイル名表示
+  (setq frame-title-format (format "%%f - Emacs@%s" (system-name)))
+
+  ;; ウィンドウの透明化
+  (add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
+
+  ;;時刻表示
+  (display-time-mode 1)
+))
+
 ;;; ツールバーを非表示
 (menu-bar-mode nil)
-
-(scroll-bar-mode nil)
 
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode 1)
