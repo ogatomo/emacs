@@ -15,13 +15,21 @@
 (custom-set-variables '(line-number-mode t)
 		      '(column-number-mode t))
 
+(set-background-color "Black")
+(set-foreground-color "White")
+(set-cursor-color "Gray")
 
 ;; ウィンドウサイズの位置、サイズ
+(setq initial-frame-alist
+      (append (list
+	       '(background-color . "Black")
+	       '(foreground-color . "White")
+	       '(cursor-color . "Gray")
+	       )
+	      initial-frame-alist))
+(setq default-frame-alist initial-frame-alist)
+
 (if window-system (progn
-  (setq initial-frame-alist '((width . 210)(height . 53)(top . 0)(left . 48)))
-  (set-background-color "Black")
-  (set-foreground-color "White")
-  (set-cursor-color "Gray")
 
   ;;; スクロールバーを非表示
   (scroll-bar-mode nil)
@@ -49,6 +57,19 @@
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
 (define-key global-map "\C-c;" 'comment-or-uncomment-region) ;範囲選択後のコメントイン・コメントアウト切替
 (define-key global-map [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
+
+;; シフト + 矢印で範囲選択1
+(setq pc-select-selection-keys-only t)(pc-selection-mode 1)
+
+;; 改行後にインデント
+(global-set-key "\C-m" 'newline-and-indent)
+
+;;M-g で指定行へジャンプ
+(global-set-key "\M-[" 'anything-imenu)
+
+;;M-g で指定行へジャンプ
+(global-set-key "\M-g" 'goto-line)
+
 
 ;;; 下線をつける
 (setq hl-line-face 'hlline-face)
@@ -83,10 +104,10 @@
 (require 'recentf-ext)
 
 (setq anything-sources (list anything-c-source-buffers
+							 anything-c-source-imenu
+							 anything-c-source-files-in-current-dir+
                              anything-c-source-recentf
-                             anything-c-source-bookmarks
-                             anything-c-source-imenu
-                             anything-c-source-files-in-current-dir+))
+                             ))
 
 (define-key anything-map (kbd "C-p") 'anything-previous-line)
 (define-key anything-map (kbd "C-n") 'anything-next-line)
