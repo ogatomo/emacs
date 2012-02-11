@@ -65,9 +65,6 @@
 (global-set-key "\C-m" 'newline-and-indent)
 
 ;;M-g で指定行へジャンプ
-(global-set-key "\M-[" 'anything-imenu)
-
-;;M-g で指定行へジャンプ
 (global-set-key "\M-g" 'goto-line)
 
 
@@ -104,9 +101,9 @@
 (require 'recentf-ext)
 
 (setq anything-sources (list anything-c-source-buffers
-							 anything-c-source-imenu
-							 anything-c-source-files-in-current-dir+
-                             anything-c-source-recentf
+			 anything-c-source-imenu
+			 anything-c-source-files-in-current-dir+
+			 anything-c-source-recentf
                              ))
 
 (define-key anything-map (kbd "C-p") 'anything-previous-line)
@@ -122,6 +119,11 @@
 ;デフォルトは 10.
 (setq anything-kill-ring-threshold 20)
 (global-set-key "\M-y" 'anything-show-kill-ring)
+(global-set-key "\M-[" 'anything-imenu)
+
+;;; linum --------------------------------------------------------
+(require 'wb-line-number)
+(global-set-key "\M-n" 'wb-line-number-toggle)
 
 ;;; php-mode ---------------------------------------------------
 ; C-.     : 引数リスト表示
@@ -318,7 +320,3 @@ and source-file directory for your debugger." t)
 
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
-
-;;; linum --------------------------------------------------------
-(require 'wb-line-number)
-
