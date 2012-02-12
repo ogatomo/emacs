@@ -68,7 +68,6 @@
 ;;M-g で指定行へジャンプ
 (global-set-key "\M-g" 'goto-line)
 
-
 ;;; 下線をつける
 (setq hl-line-face 'hlline-face)
 (setq hl-line-face 'underline)
@@ -84,18 +83,28 @@
   (interactive)
   (if (eq major-mode 'dired-mode)
       (let ((fname (dired-get-filename)))
-	(call-process-shell-command (concat "open \"" fname "\"")) ;;mac用
+	(call-process-shell-command (concat "/usr/bin/open \"" fname "\"")) ;;mac
         (message "opening... %s" fname)
 )))
-; dired のキー割り当て追加。zキーを押すと、
-; Macに関連付けられたアプリケーションでファイルを開けるようにする。
+
 (add-hook 'dired-mode-hook
           (lambda ()
-            (define-key dired-mode-map "z" 'uenox-dired-winstart))) 
-; dired-mode時もバッファ切替をC-tでできるようにする
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (define-key dired-mode-map "\C-t" 'other-window))) 
+	    ; dired-mode時もバッファ切替をC-tでできるようにする
+            (define-key dired-mode-map "\C-t" 'other-window)
+
+	    ; 自在に名前変更するモード
+	    (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+
+	    ; dired のキー割り当て追加。zキーを押すと、
+	    ; Macに関連付けられたアプリケーションでファイルを開けるようにする。
+	    (define-key dired-mode-map "z" 'uenox-dired-winstart)
+	    )) 
+
+
+
+
+;;; recentf   ---------------------------------------------------
+(setq recentf-max-saved-items 1000)
 
 ;;; anything  ---------------------------------------------------
 (require 'anything-startup)
@@ -314,10 +323,51 @@ and source-file directory for your debugger." t)
 ; C-x u   : undo-tree-visualize 終了はq
 (when (require 'undo-tree nil t) (global-undo-tree-mode))
 
+;;; point-undo ---------------------------------------------------
+(require 'point-undo)
+(define-key global-map (kbd "<f7>") 'point-undo)
+
+;;; goto-chg.el --------------------------------------------------
+(require 'goto-chg)
+(define-key global-map (kbd "<f8>") 'goto-last-change)
+(define-key global-map (kbd "S-<f8>") 'goto-last-change-reverse)
+
+;;; bm --------------------------------------------------
+(setq-default bm-buffer-persistence nil)
+(setq bm-restore-repository-on-load t)
+(require 'bm)
+(add-hook 'find-file-hooks 'bm-buffer-restore)
+(add-hook 'kill-buffer-hook 'bm-buffer-save)
+(add-hook 'after-save-hook 'bm-buffer-save)
+(add-hook 'after-revert-hook 'bm-buffer-restore)
+(add-hook 'vc-before-checkin-hook 'bm-buffer-save)
+(global-set-key (kbd "C-.") 'bm-toggle)
+(global-set-key (kbd "C-:") 'bm-previous)
+(global-set-key (kbd "C-;") 'bm-next)
+
 ;;; geben  -------------------------------------------------------
-; MAMPでxdebug使う時に使用
+; mampでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
 
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
+
+;;; auto-compile -------------------------------------------------
+(require 'auto-async-byte-compile)
+(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
+(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
+
+;;; uniquify -----------------------------------------------------
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq uniquify-ignore-buffers-re "*[^*]+}")
+
+;;; emacsclient --------------------------------------------------
+(server-start)
+(defun iconify-emacs-wehn-server-is-done()
+  (unless server-clients (iconify-frame)))
+(add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
+(global-set-key (kbd "C-x C-c") 'server-edit)
+(defalias 'exit 'save-buffers-kill-emacs)
+
