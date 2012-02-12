@@ -1,6 +1,5 @@
 ;;; マークのリージョンに色を付ける
 (setq transient-mark-mode t)
-;(set-face-background 'region "black")
 
 ;;; スタートメッセージを表示しない
 (setq inhibit-startup-message t)
@@ -56,6 +55,8 @@
 ;;; キー設定
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
 (define-key global-map "\C-c;" 'comment-or-uncomment-region) ;範囲選択後のコメントイン・コメントアウト切替
+(define-key global-map [C-tab] 'other-frame)
+(define-key global-map [S-C-tab] (lambda () (interactive) (other-frame -1)))
 (define-key global-map [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
 
 ;; シフト + 矢印で範囲選択1
