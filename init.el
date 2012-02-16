@@ -369,4 +369,23 @@ and source-file directory for your debugger." t)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
 
+;;; twitting-mode -----------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/twittering-mode")
+(autoload 'twit "twittering-mode" nil t)
+(setq twittering-username "ogatomo")
+(setq twittering-icon-mode t)
+(setq twittering-jojo-mode t)
+(defun twittering-mode-hook-func ()
+(set-face-bold-p 'twittering-username-face t)
+(set-face-foreground 'twittering-username-face "DeepSkyBlue3")
+(set-face-foreground 'twittering-uri-face "gray35")
+(define-key twittering-mode-map (kbd "<") 'my-beginning-of-buffer)
+(define-key twittering-mode-map (kbd ">") 'my-end-of-buffer)
+(define-key twittering-mode-map (kbd "F") 'twittering-favorite))
+(add-hook 'twittering-mode-hook 'twittering-mode-hook-func)
 
+
+;;ヒラギノ角ゴ ProN W6
+(font-spec :family "Hiragino Kaku Gothic ProN" :weight 'bold)
+;;ヒラギノ角ゴ StdN W8
+(font-spec :family "Hiragino Kaku Gothic StdN" :weight 'bold)
