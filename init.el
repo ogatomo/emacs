@@ -353,6 +353,12 @@ and source-file directory for your debugger." t)
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
 
+;;; gist ---------------------------------------------------------
+(require 'gist)
+(setq gist-view-gist t)
+(setq github-user "ogatomo")
+(load "github-token") ; (setq github-token "xxxxxxxxxx")
+
 ;;; auto-compile -------------------------------------------------
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -363,11 +369,4 @@ and source-file directory for your debugger." t)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
 
-;;; emacsclient --------------------------------------------------
-(server-start)
-(defun iconify-emacs-wehn-server-is-done()
-  (unless server-clients (iconify-frame)))
-(add-hook 'server-done-hook 'iconify-emacs-when-server-is-done)
-(global-set-key (kbd "C-x C-c") 'server-edit)
-(defalias 'exit 'save-buffers-kill-emacs)
 
