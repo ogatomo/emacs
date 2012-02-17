@@ -95,9 +95,6 @@
 	    (define-key dired-mode-map "z" 'uenox-dired-winstart)
 	    )) 
 
-
-
-
 ;;; recentf   ---------------------------------------------------
 (setq recentf-max-saved-items 1000)
 
@@ -295,6 +292,8 @@ and source-file directory for your debugger." t)
   (interactive)
   (shell-command-to-string "~/.emacs.d/sh/xcode-run.sh"))
 
+
+
 ;;; yasnippet  ---------------------------------------------------
 (require 'yasnippet-bundle)
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
@@ -370,16 +369,108 @@ and source-file directory for your debugger." t)
 (setq twittering-icon-mode t)
 (setq twittering-jojo-mode t)
 (defun twittering-mode-hook-func ()
-(set-face-bold-p 'twittering-username-face t)
-(set-face-foreground 'twittering-username-face "DeepSkyBlue3")
-(set-face-foreground 'twittering-uri-face "gray35")
-(define-key twittering-mode-map (kbd "<") 'my-beginning-of-buffer)
-(define-key twittering-mode-map (kbd ">") 'my-end-of-buffer)
-(define-key twittering-mode-map (kbd "F") 'twittering-favorite))
+  (set-face-bold-p 'twittering-username-face t)
+  (set-face-foreground 'twittering-username-face "DeepSkyBlue3")
+  (set-face-foreground 'twittering-uri-face "gray35")
+  (define-key twittering-mode-map (kbd "<") 'my-beginning-of-buffer)
+  (define-key twittering-mode-map (kbd ">") 'my-end-of-buffer)
+  (define-key twittering-mode-map (kbd "F") 'twittering-favorite))
+
 (add-hook 'twittering-mode-hook 'twittering-mode-hook-func)
 
+; OAuth
+;(setq twittering-oauth-access-token-alist
+;       '(("oauth_token" . "トークン文字列")
+;         ("oauth_token_secret" . "トークン文字列")
+;         ("user_id" . "自分のユーザID")
+;         ("screen_name" . "自分のスクリーンネーム")))
+(load "twittering-oauth-access-token")
 
-;;ヒラギノ角ゴ ProN W6
-(font-spec :family "Hiragino Kaku Gothic ProN" :weight 'bold)
-;;ヒラギノ角ゴ StdN W8
-(font-spec :family "Hiragino Kaku Gothic StdN" :weight 'bold)
+;;; flymake -----------------------------------------------------
+(when (require 'flymake nil t)
+  (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
+  ;; PHP
+  (when (not (fboundp 'flymake-php-init))
+    (defun flymake-php-init ()
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                         'flymake-create-temp-inplace))
+             (local-file (file-relative-name
+                          temp-file
+                          (file-name-directory buffer-file-name))))
+        (list "php" (list "-f" local-file "-l"))))
+    (setq flymake-allowed-file-name-masks
+          (append
+           flymake-allowed-file-name-masks
+           '(("\.php[345]?$" flymake-php-init))))
+    (setq flymake-err-line-patterns
+          (cons
+           '("\(\(?:Parse error\|Fatal error\|Warning\): .*\) in \(.*\) on line \([0-9]+\)" 2 3 nil 1)
+           flymake-err-line-patterns)))
+  ;; JavaScript
+  (when (not (fboundp 'flymake-javascript-init))
+    (defun flymake-javascript-init ()
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                         'flymake-create-temp-inplace))
+             (local-file (file-relative-name
+                          temp-file
+                          (file-name-directory buffer-file-name))))
+        (list "/usr/local/bin/jsl" (list "-process" local-file))))
+    (setq flymake-allowed-file-name-masks
+          (append
+           flymake-allowed-file-name-masks
+           '(("\.json$" flymake-javascript-init)
+             ("\.js$" flymake-javascript-init))))
+    (setq flymake-err-line-patterns
+          (cons
+           '("\(.+\)(\([0-9]+\)): \(?:lint \)?\(\(?:Warning\|SyntaxError\):.+\)" 1 2 nil 3)
+           flymake-err-line-patterns)))
+  ;; Ruby
+  (when (not (fboundp 'flymake-ruby-init))
+    (defun flymake-ruby-init ()
+      (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                         'flymake-create-temp-inplace))
+             (local-file (file-relative-name
+                          temp-file
+                          (file-name-directory buffer-file-name))))
+        '("ruby" '("-c" local-file)))))
+  (add-hook 'php-mode-hook
+            '(lambda () (flymake-mode t)))
+  (add-hook 'js-mode-hook
+            (lambda () (flymake-mode t)))
+  (add-hook 'ruby-mode-hook
+            (lambda () (flymake-mode t))))
+
+;;; font
+;; フォントセットを作る
+(let* ((fontset-name "myfonts") ; フォントセットの名前
+       (size 12) ; ASCIIフォントのサイズ [9/10/12/14/15/17/19/20/...]
+       (asciifont "Menlo") ; ASCIIフォント
+       (jpfont "Hiragino Maru Gothic ProN") ; 日本語フォント
+       (font (format "%s-%d:weight=normal:slant=normal" asciifont size))
+       (fontspec (font-spec :family asciifont))
+       (jp-fontspec (font-spec :family jpfont)) 
+       (fsn (create-fontset-from-ascii-font font nil fontset-name)))
+  (set-fontset-font fsn 'japanese-jisx0213.2004-1 jp-fontspec)
+  (set-fontset-font fsn 'japanese-jisx0213-2 jp-fontspec)
+  (set-fontset-font fsn 'katakana-jisx0201 jp-fontspec) ; 半角カナ
+  (set-fontset-font fsn '(#x0080 . #x024F) fontspec) ; 分音符付きラテン
+  (set-fontset-font fsn '(#x0370 . #x03FF) fontspec) ; ギリシャ文字
+  )
+
+;; デフォルトのフレームパラメータでフォントセットを指定
+(add-to-list 'default-frame-alist '(font . "fontset-myfonts"))
+
+;; フォントサイズの比を設定
+(dolist (elt '(("^-apple-hiragino.*" . 1.2)
+		 (".*osaka-bold.*" . 1.2)
+		 (".*osaka-medium.*" . 1.2)
+		 (".*courier-bold-.*-mac-roman" . 1.0)
+		 (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+		 (".*monaco-bold-.*-mac-roman" . 0.9)))
+    (add-to-list 'face-font-rescale-alist elt))
+
+
+;; デフォルトフェイスにフォントセットを設定
+;; # これは起動時に default-frame-alist に従ったフレームが
+;; # 作成されない現象への対処
+(set-face-font 'default "fontset-myfonts")
