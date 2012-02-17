@@ -41,9 +41,6 @@
 
   ;; ウィンドウの透明化
   (add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
-
-  ;;時刻表示
-  (display-time-mode 1)
 ))
 
 ;;; ツールバーを非表示
@@ -55,8 +52,6 @@
 ;;; キー設定
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
 (define-key global-map "\C-c;" 'comment-or-uncomment-region) ;範囲選択後のコメントイン・コメントアウト切替
-(define-key global-map [C-tab] 'other-frame)
-(define-key global-map [S-C-tab] (lambda () (interactive) (other-frame -1)))
 (define-key global-map [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
 
 ;; シフト + 矢印で範囲選択1
@@ -111,7 +106,6 @@
 (require 'recentf-ext)
 
 (setq anything-sources (list anything-c-source-buffers
-			 anything-c-source-imenu
 			 anything-c-source-files-in-current-dir+
 			 anything-c-source-recentf
                              ))
@@ -341,7 +335,7 @@ and source-file directory for your debugger." t)
 (add-hook 'after-save-hook 'bm-buffer-save)
 (add-hook 'after-revert-hook 'bm-buffer-restore)
 (add-hook 'vc-before-checkin-hook 'bm-buffer-save)
-(global-set-key (kbd "C-.") 'bm-toggle)
+(global-set-key (kbd "C-,") 'bm-toggle)
 (global-set-key (kbd "C-:") 'bm-previous)
 (global-set-key (kbd "C-;") 'bm-next)
 
