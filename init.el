@@ -365,7 +365,6 @@ and source-file directory for your debugger." t)
 ;;; twitting-mode -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/twittering-mode")
 (autoload 'twit "twittering-mode" nil t)
-(setq twittering-username "ogatomo")
 (setq twittering-icon-mode t)
 (setq twittering-jojo-mode t)
 (defun twittering-mode-hook-func ()
@@ -474,3 +473,7 @@ and source-file directory for your debugger." t)
 ;; # これは起動時に default-frame-alist に従ったフレームが
 ;; # 作成されない現象への対処
 (set-face-font 'default "fontset-myfonts")
+
+;; navi2ch
+(add-to-list 'load-path "~/.emacs.d/navi2ch")
+(autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
