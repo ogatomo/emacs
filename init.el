@@ -362,6 +362,9 @@ and source-file directory for your debugger." t)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
 
+;;; cedet -------------------------------------------------------------
+(load-library "cedet")
+
 ;;; twitting-mode -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/twittering-mode")
 (autoload 'twit "twittering-mode" nil t)
