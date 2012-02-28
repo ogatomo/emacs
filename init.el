@@ -29,6 +29,8 @@
 (setq default-frame-alist initial-frame-alist)
 
 (if window-system (progn
+  ;;; フレーム移動用のキーバインド
+  (define-key global-map [C-tab] 'other-frame)
 
   ;;; スクロールバーを非表示
   (scroll-bar-mode nil)
