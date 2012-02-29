@@ -345,6 +345,13 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
 
+;;; magit --------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/magit")
+(require 'magit)
+(require 'magit-svn)
+(require 'magit-topgit)
+(require 'magit-stgit)
+
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
 
