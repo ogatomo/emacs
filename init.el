@@ -489,3 +489,14 @@ and source-file directory for your debugger." t)
 ;; navi2ch
 (add-to-list 'load-path "~/.emacs.d/navi2ch")
 (autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
+
+;; popwin
+(add-to-list 'load-path "~/.emacs.d/popwin")
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
+;; direx
+(add-to-list 'load-path "~/.emacs.d/direx")
+(require 'direx)
+(push '(direx:direx-mode :position left :width 25 :dedicated t) popwin:special-display-config)
+(global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)

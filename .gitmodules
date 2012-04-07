@@ -7,3 +7,9 @@
 [submodule "magit"]
 	path = magit
 	url = https://github.com/magit/magit.git
+[submodule "direx"]
+	path = direx
+	url = https://github.com/m2ym/direx-el.git
+[submodule "popwin"]
+	path = popwin
+	url = https://github.com/m2ym/popwin-el.git
