@@ -299,11 +299,10 @@ and source-file directory for your debugger." t)
 
 
 ;;; yasnippet  ---------------------------------------------------
-(require 'yasnippet-bundle)
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/yasnippet/snippets")
+;(setq yas/snippet-dirs '("~/.emacs.d/snippets" "~/.emacs.d/extras/imported"))
+(yas/global-mode 1)
 
 ;;; yaml-mode  ---------------------------------------------------
 (require 'yaml-mode)
