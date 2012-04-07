@@ -13,3 +13,9 @@
 [submodule "popwin"]
 	path = popwin
 	url = https://github.com/m2ym/popwin-el.git
+[submodule "auto-complete"]
+	path = auto-complete
+	url = https://github.com/m2ym/auto-complete.git
+[submodule "popup"]
+	path = popup
+	url = https://github.com/m2ym/popup-el.git
