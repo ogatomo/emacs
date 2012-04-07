@@ -31,3 +31,6 @@
 [submodule "rhtml"]
 	path = rhtml
 	url = https://github.com/eschulte/rhtml
+[submodule "ri-emacs"]
+	path = ri-emacs
+	url = https://github.com/pedz/ri-emacs.git
