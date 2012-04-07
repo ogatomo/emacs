@@ -28,3 +28,6 @@
 [submodule "ruby-mode"]
 	path = ruby-mode
 	url = https://github.com/djwhitt/ruby-mode.git
+[submodule "rhtml"]
+	path = rhtml
+	url = https://github.com/eschulte/rhtml
