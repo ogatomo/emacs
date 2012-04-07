@@ -28,9 +28,3 @@
 [submodule "ruby-mode"]
 	path = ruby-mode
 	url = https://github.com/djwhitt/ruby-mode.git
-[submodule "jump"]
-	path = jump
-	url = https://github.com/eschulte/jump.el.git
-[submodule "ruby-compilation"]
-	path = ruby-compilation
-	url = https://github.com/emacsmirror/ruby-compilation.git
