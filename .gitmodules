@@ -34,3 +34,9 @@
 [submodule "ri-emacs"]
 	path = ri-emacs
 	url = https://github.com/pedz/ri-emacs.git
+[submodule "rvm"]
+	path = rvm
+	url = https://github.com/senny/rvm.el.git
+[submodule "flymake-ruby"]
+	path = flymake-ruby
+	url = https://github.com/purcell/flymake-ruby.git

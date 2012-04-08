@@ -173,6 +173,11 @@
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
+;;; rvm      --------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/rvm")
+(require 'rvm)
+(rvm-use-default)
+
 ;;; ruby on rails -----------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/rinari")
 (require 'rinari)
@@ -432,21 +437,16 @@ and source-file directory for your debugger." t)
           (cons
            '("\(.+\)(\([0-9]+\)): \(?:lint \)?\(\(?:Warning\|SyntaxError\):.+\)" 1 2 nil 3)
            flymake-err-line-patterns)))
-  ;; Ruby
-  (when (not (fboundp 'flymake-ruby-init))
-    (defun flymake-ruby-init ()
-      (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                         'flymake-create-temp-inplace))
-             (local-file (file-relative-name
-                          temp-file
-                          (file-name-directory buffer-file-name))))
-        '("ruby" '("-c" local-file)))))
+
   (add-hook 'php-mode-hook
             '(lambda () (flymake-mode t)))
   (add-hook 'js-mode-hook
-            (lambda () (flymake-mode t)))
-  (add-hook 'ruby-mode-hook
             (lambda () (flymake-mode t))))
+
+;;; flymake-ruby -----------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/flymake-ruby")
+(require 'flymake-ruby)
+(add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
 ;;; font
 ;; フォントセットを作る
