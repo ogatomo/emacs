@@ -498,3 +498,10 @@ and source-file directory for your debugger." t)
 (require 'direx)
 (push '(direx:direx-mode :position left :width 25 :dedicated t) popwin:special-display-config)
 (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
+
+;; nxml
+(setq auto-mode-alist (cons '("\.xaml$" . nxml-mode) auto-mode-alist))
+
+;; csharp-mode
+(add-to-list 'load-path "~/.emacs.d/csharp-mode")
+(require 'csharp-mode)

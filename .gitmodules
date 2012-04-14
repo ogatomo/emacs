@@ -40,3 +40,6 @@
 [submodule "flymake-ruby"]
 	path = flymake-ruby
 	url = https://github.com/purcell/flymake-ruby.git
+[submodule "csharp-mode"]
+	path = csharp-mode
+	url = https://github.com/Sectoid/csharp-mode
