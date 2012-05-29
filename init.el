@@ -214,6 +214,10 @@ and source-file directory for your debugger." t)
 (require 'rvm)
 (rvm-use-default)
 
+;;; ruby-debug --------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/ruby-debug-extra/emacs")
+(require 'rdebug)
+
 ;;; ruby on rails -----------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/rinari")
 (require 'rinari)

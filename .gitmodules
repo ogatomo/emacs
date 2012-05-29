@@ -43,3 +43,6 @@
 [submodule "csharp-mode"]
 	path = csharp-mode
 	url = https://github.com/Sectoid/csharp-mode
+[submodule "ruby-debug-extra"]
+	path = ruby-debug-extra
+	url = https://github.com/ruby-debug/ruby-debug-extra.git
