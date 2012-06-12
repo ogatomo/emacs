@@ -344,7 +344,7 @@ and source-file directory for your debugger." t)
 (require 'yasnippet)
 ;(setq yas/snippet-dirs '("~/.emacs.d/snippets" "~/.emacs.d/extras/imported"))
 ;(setq yas/snippet-dirs '("~/.emacs.d/yasnippet/snippets" "~/.emacs.d/extras/imported"))
-(setq yas/snippet-dirs '("~/.emacs.d/yasnippet/snippets"))
+(setq yas/snippet-dirs '("~/.emacs.d/yasnippet/snippets" "~/.emacs.d/yasnippets-rspec/rspec-snippets"))
 (yas/global-mode 1)
 
 ;;; yaml-mode  ---------------------------------------------------

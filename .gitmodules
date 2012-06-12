@@ -46,3 +46,6 @@
 [submodule "ruby-debug-extra"]
 	path = ruby-debug-extra
 	url = https://github.com/ruby-debug/ruby-debug-extra.git
+[submodule "yasnippets-rspec"]
+	path = yasnippets-rspec
+	url = https://github.com/gary/yasnippets-rspec.git
