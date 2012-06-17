@@ -82,7 +82,7 @@
 ))
 
 ;;; ツールバーを非表示
-(menu-bar-mode nil)
+(tool-bar-mode 0)
 
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode 1)
@@ -91,9 +91,6 @@
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
 (define-key global-map "\C-c;" 'comment-or-uncomment-region) ;範囲選択後のコメントイン・コメントアウト切替
 (define-key global-map [?¥] [?\\]) ; ¥の代わりにバックスラッシュを入力する
-
-;; シフト + 矢印で範囲選択1
-(setq pc-select-selection-keys-only t)(pc-selection-mode 1)
 
 ;; 改行後にインデント
 (global-set-key "\C-m" 'newline-and-indent)
