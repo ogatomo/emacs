@@ -508,3 +508,23 @@ and source-file directory for your debugger." t)
 ;; csharp-mode
 (add-to-list 'load-path "~/.emacs.d/csharp-mode")
 (require 'csharp-mode)
+
+;; ecb
+(add-to-list 'load-path "~/.emacs.d/ecb")
+(require 'ecb)
+(setq stack-trace-on-error t)
+(setq ecb-tip-of-the-day nil)
+(setq ecb-windows-width 0.25)
+(defun ecb-toggle ()
+  (interactive)
+  (if ecb-minor-mode
+      (ecb-deactivate)
+    (ecb-activate)))
+(global-set-key [f2] 'ecb-toggle)
+
+(define-key ecb-mode-map (kbd "C-c 1") 'ecb-goto-window-directories)
+(define-key ecb-mode-map (kbd "C-c 2") 'ecb-goto-window-sources)
+(define-key ecb-mode-map (kbd "C-c 3") 'ecb-goto-window-methods)
+(define-key ecb-mode-map (kbd "C-c 4") 'ecb-goto-window-histories)
+(define-key ecb-mode-map (kbd "C-c 5") 'ecb-goto-window-compilation)
+(define-key ecb-mode-map (kbd "C-c 0") 'ecb-goto-window-edit1)

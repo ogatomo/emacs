@@ -49,3 +49,6 @@
 [submodule "yasnippets-rspec"]
 	path = yasnippets-rspec
 	url = https://github.com/gary/yasnippets-rspec.git
+[submodule "ecb"]
+	path = ecb
+	url = https://github.com/emacsmirror/ecb.git
