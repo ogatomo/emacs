@@ -157,10 +157,6 @@
 (global-set-key "\M-y" 'anything-show-kill-ring)
 (global-set-key "\M-[" 'anything-imenu)
 
-;;; linum --------------------------------------------------------
-(require 'wb-line-number)
-(global-set-key "\M-n" 'wb-line-number-toggle)
-
 ;;; php-mode ---------------------------------------------------
 ; C-.     : 引数リスト表示
 ; C-c C-f : カーソル位置の関数を調べる
@@ -263,25 +259,6 @@ and source-file directory for your debugger." t)
 (autoload 'turn-on-vtl-mode "vtl" nil t)
 (add-to-list 'auto-mode-alist '("\\.vm$" . turn-on-vtl-mode))
 
-;;; ffap ---------------------------------------------------------
-(ffap-bindings)
-(setq ffap-newfile-prompt t)
-(setq ffap-kpathsea-depth 5)
-
-(setq ff-other-file-alist
-     '(("\\.mm?$" (".h"))
-       ("\\.cc$"  (".hh" ".h"))
-       ("\\.hh$"  (".cc" ".C"))
-       ("\\.c$"   (".h"))
-       ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m" ".mm"))
-       ("\\.C$"   (".H"  ".hh" ".h"))
-       ("\\.H$"   (".C"  ".CC"))
-       ("\\.CC$"  (".HH" ".H"  ".hh" ".h"))
-       ("\\.HH$"  (".CC"))
-       ("\\.cxx$" (".hh" ".h"))
-       ("\\.cpp$" (".hpp" ".hh" ".h"))
-       ("\\.hpp$" (".cpp" ".c"))))
-
 ;;; auto-complete ------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/popup")
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
@@ -334,8 +311,6 @@ and source-file directory for your debugger." t)
   (interactive)
   (shell-command-to-string "~/.emacs.d/sh/xcode-run.sh"))
 
-
-
 ;;; yasnippet  ---------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
@@ -367,19 +342,6 @@ and source-file directory for your debugger." t)
 (require 'goto-chg)
 (define-key global-map (kbd "<f8>") 'goto-last-change)
 (define-key global-map (kbd "S-<f8>") 'goto-last-change-reverse)
-
-;;; bm --------------------------------------------------
-(setq-default bm-buffer-persistence nil)
-(setq bm-restore-repository-on-load t)
-(require 'bm)
-(add-hook 'find-file-hooks 'bm-buffer-restore)
-(add-hook 'kill-buffer-hook 'bm-buffer-save)
-(add-hook 'after-save-hook 'bm-buffer-save)
-(add-hook 'after-revert-hook 'bm-buffer-restore)
-(add-hook 'vc-before-checkin-hook 'bm-buffer-save)
-(global-set-key (kbd "C-,") 'bm-toggle)
-(global-set-key (kbd "C-:") 'bm-previous)
-(global-set-key (kbd "C-;") 'bm-next)
 
 ;;; geben  -------------------------------------------------------
 ; mampでxdebug使う時に使用
@@ -526,5 +488,5 @@ and source-file directory for your debugger." t)
 (define-key ecb-mode-map (kbd "C-c 2") 'ecb-goto-window-sources)
 (define-key ecb-mode-map (kbd "C-c 3") 'ecb-goto-window-methods)
 (define-key ecb-mode-map (kbd "C-c 4") 'ecb-goto-window-history)
-(define-key ecb-mode-map (kbd "C-c 5") 'ecb-goto-window-compilation)
-(define-key ecb-mode-map (kbd "C-c 0") 'ecb-goto-window-edit1)
+(define-key ecb-mode-map (kbd "C-c 5") 'ecb-goto-window-edit1)
+(define-key ecb-mode-map (kbd "C-c 6") 'ecb-goto-window-edit2)
