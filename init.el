@@ -103,6 +103,22 @@
 (setq hl-line-face 'underline)
 (global-hl-line-mode)
 
+;;; 環境変数PATH設定
+(dolist (dir (list
+              "/sbin"
+              "/usr/sbin"
+              "/bin"
+              "/usr/bin"
+              "/opt/local/bin"
+              "/sw/bin"
+              "/usr/local/bin"
+              (expand-file-name "~/bin")
+              (expand-file-name "~/.emacs.d/bin")
+              ))
+ (when (and (file-exists-p dir) (not (member dir exec-path)))
+   (setenv "PATH" (concat dir ":" (getenv "PATH")))
+   (setq exec-path (append (list dir) exec-path))))
+
 ;;; elisp path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
