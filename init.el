@@ -297,6 +297,26 @@ and source-file directory for your debugger." t)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
 
+(require 'auto-complete-etags)
+(add-to-list 'ac-sources 'ac-source-etags)
+
+(setq ac-etags-use-document t)
+
+(defun ruby-mode-hook-func ()
+  (interactive)
+  "Function to be called when entering into c-mode."
+  (when (and (require 'auto-complete nil t) (require 'auto-complete-config nil t))
+    (auto-complete-mode t)
+    (make-local-variable 'ac-sources)
+    (setq ac-auto-start 2)
+    (setq ac-sources '(ac-source-words-in-same-mode-buffers
+                       ac-source-dictionary))
+    (when (require 'auto-complete-etags nil t)
+      (add-to-list 'ac-sources 'ac-source-etags)
+      (setq ac-etags-use-document t))))
+
+(add-hook 'ruby-mode-hook 'ruby-mode-hook-func)
+
 ;;; Objective-C Mode ---------------------------------------------
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
