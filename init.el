@@ -205,6 +205,7 @@
 ;;; ruby     ---------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/ruby-mode")
 (require 'ruby-mode)
+(require 'ruby-electric)
 
 (autoload 'ruby-mode "ruby-mode"
    "Mode for editing ruby source files" t)
@@ -212,6 +213,8 @@
    (append '(("\\.rb$" . ruby-mode)) auto-mode-alist))
 (setq interpreter-mode-alist (append '(("ruby" . ruby-mode))
                                 interpreter-mode-alist))
+
+(add-hook 'ruby-mode-hook '(lambda () (ruby-electric-mode t)))
 
 (autoload 'rubydb "rubydb3x"
   "run rubydb on program file in buffer *gud-file*.
