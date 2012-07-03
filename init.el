@@ -509,3 +509,9 @@ and source-file directory for your debugger." t)
 (define-key ecb-mode-map (kbd "C-c 4") 'ecb-goto-window-history)
 (define-key ecb-mode-map (kbd "C-c 5") 'ecb-goto-window-edit1)
 (define-key ecb-mode-map (kbd "C-c 6") 'ecb-goto-window-edit2)
+
+;; e2wm
+(add-to-list 'load-path "~/.emacs.d/emacs-window-layout")
+(add-to-list 'load-path "~/.emacs.d/emacs-window-manager")
+(require 'e2wm)
+(global-set-key (kbd "M-+") 'e2wm:start-management)

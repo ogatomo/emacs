@@ -52,3 +52,9 @@
 [submodule "ecb"]
 	path = ecb
 	url = https://github.com/emacsmirror/ecb.git
+[submodule "emacs-window-manager"]
+	path = emacs-window-manager
+	url = https://github.com/kiwanami/emacs-window-manager.git
+[submodule "emacs-window-layout"]
+	path = emacs-window-layout
+	url = https://github.com/kiwanami/emacs-window-layout.git
