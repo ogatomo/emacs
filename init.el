@@ -82,7 +82,7 @@
 ))
 
 ;;; ツールバーを非表示
-(tool-bar-mode 0)
+(if (functionp 'tool-bar-mode) (tool-bar-mode 0))
 
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode 1)
