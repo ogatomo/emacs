@@ -274,10 +274,6 @@ and source-file directory for your debugger." t)
       (expand-file-name "~/.emacs.d/ri-emacs/ri-emacs.rb"))
 (autoload 'ri "ri-ruby.el" "Execute `ri'." t)
 
-;;; VTL Mode   ---------------------------------------------------
-(autoload 'turn-on-vtl-mode "vtl" nil t)
-(add-to-list 'auto-mode-alist '("\\.vm$" . turn-on-vtl-mode))
-
 ;;; auto-complete ------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/popup")
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
@@ -393,9 +389,6 @@ and source-file directory for your debugger." t)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
 
-;;; cedet -------------------------------------------------------------
-(load-library "cedet")
-
 ;;; twitting-mode -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/twittering-mode")
 (autoload 'twit "twittering-mode" nil t)
@@ -489,26 +482,6 @@ and source-file directory for your debugger." t)
 ;; csharp-mode
 (add-to-list 'load-path "~/.emacs.d/csharp-mode")
 (require 'csharp-mode)
-
-;; ecb
-(add-to-list 'load-path "~/.emacs.d/ecb")
-(require 'ecb)
-(setq stack-trace-on-error t)
-(setq ecb-tip-of-the-day nil)
-(setq ecb-windows-width 0.25)
-(defun ecb-toggle ()
-  (interactive)
-  (if ecb-minor-mode
-      (ecb-deactivate)
-    (ecb-activate)))
-(global-set-key [f2] 'ecb-toggle)
-
-(define-key ecb-mode-map (kbd "C-c 1") 'ecb-goto-window-directories)
-(define-key ecb-mode-map (kbd "C-c 2") 'ecb-goto-window-sources)
-(define-key ecb-mode-map (kbd "C-c 3") 'ecb-goto-window-methods)
-(define-key ecb-mode-map (kbd "C-c 4") 'ecb-goto-window-history)
-(define-key ecb-mode-map (kbd "C-c 5") 'ecb-goto-window-edit1)
-(define-key ecb-mode-map (kbd "C-c 6") 'ecb-goto-window-edit2)
 
 ;; e2wm
 (add-to-list 'load-path "~/.emacs.d/emacs-window-layout")

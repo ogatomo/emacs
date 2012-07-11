@@ -49,9 +49,6 @@
 [submodule "yasnippets-rspec"]
 	path = yasnippets-rspec
 	url = https://github.com/gary/yasnippets-rspec.git
-[submodule "ecb"]
-	path = ecb
-	url = https://github.com/emacsmirror/ecb.git
 [submodule "emacs-window-manager"]
 	path = emacs-window-manager
 	url = https://github.com/kiwanami/emacs-window-manager.git
