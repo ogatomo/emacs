@@ -14,20 +14,6 @@
 (custom-set-variables '(line-number-mode t)
 		      '(column-number-mode t))
 
-(set-background-color "Black")
-(set-foreground-color "White")
-(set-cursor-color "Gray")
-
-;; ウィンドウサイズの位置、サイズ
-(setq initial-frame-alist
-      (append (list
-	       '(background-color . "Black")
-	       '(foreground-color . "White")
-	       '(cursor-color . "Gray")
-	       )
-	      initial-frame-alist))
-(setq default-frame-alist initial-frame-alist)
-
 (if window-system (progn
   ;;; フレーム移動用のキーバインド
   (define-key global-map [C-tab] 'other-frame)
@@ -42,7 +28,7 @@
   (setq frame-title-format (format "%%f - Emacs@%s" (system-name)))
 
   ;; ウィンドウの透明化
-  (add-to-list 'default-frame-alist '(alpha . (0.80 0.80)))
+  (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
 
   ;;; font
   ;; フォントセットを作る
