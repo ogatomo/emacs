@@ -79,6 +79,14 @@
   ;; # 作成されない現象への対処
   (set-face-font 'default "fontset-myfonts")
 
+  (setenv "LANG" "ja_JP.UTF-8")
+  (setenv "LC_CTYPE" "ja_JP.UTF-8")
+  (setenv "LC_MESSAGES" "ja_JP.UTF-8")
+  (setenv "LC_MONETARY" "ja_JP.UTF-8")
+  (setenv "LC_NUMERIC" "ja_JP.UTF-8")
+  (setenv "LC_TIME" "ja_JP.UTF-8")
+  (setenv "LC_ALL" "")
+
 ))
 
 ;;; ツールバーを非表示
@@ -105,13 +113,9 @@
 
 ;;; 環境変数PATH設定
 (dolist (dir (list
-              "/sbin"
-              "/usr/sbin"
-              "/bin"
               "/opt/local/bin"
-              "/usr/bin"
-              "/sw/bin"
-              "/usr/local/bin"
+	      "/opt/local/sbin"
+	      "/opt/local/man"
               (expand-file-name "~/bin")
               (expand-file-name "~/.emacs.d/bin")
               ))
