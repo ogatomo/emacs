@@ -25,9 +25,6 @@
 [submodule "rinari"]
 	path = rinari
 	url = git://github.com/eschulte/rinari.git
-[submodule "ruby-mode"]
-	path = ruby-mode
-	url = https://github.com/djwhitt/ruby-mode.git
 [submodule "rhtml"]
 	path = rhtml
 	url = https://github.com/eschulte/rhtml
@@ -40,9 +37,6 @@
 [submodule "flymake-ruby"]
 	path = flymake-ruby
 	url = https://github.com/purcell/flymake-ruby.git
-[submodule "csharp-mode"]
-	path = csharp-mode
-	url = https://github.com/Sectoid/csharp-mode
 [submodule "ruby-debug-extra"]
 	path = ruby-debug-extra
 	url = https://github.com/ruby-debug/ruby-debug-extra.git
