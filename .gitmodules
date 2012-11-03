@@ -49,6 +49,3 @@
 [submodule "emacs-window-layout"]
 	path = emacs-window-layout
 	url = https://github.com/kiwanami/emacs-window-layout.git
-[submodule "ruby-mode"]
-	path = ruby-mode
-	url = https://github.com/jwiegley/ruby-mode.git
