@@ -51,4 +51,4 @@
 	url = https://github.com/kiwanami/emacs-window-layout.git
 [submodule "ruby-mode"]
 	path = ruby-mode
-	url = https://github.com/boostpro/ruby-mode.git
+	url = git://github.com/jwiegley/ruby-mode.git
