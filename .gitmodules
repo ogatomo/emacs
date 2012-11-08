@@ -49,3 +49,6 @@
 [submodule "emacs-window-layout"]
 	path = emacs-window-layout
 	url = https://github.com/kiwanami/emacs-window-layout.git
+[submodule "flymake-easy"]
+	path = flymake-easy
+	url = git://github.com/purcell/flymake-easy.git

@@ -446,6 +446,10 @@ and source-file directory for your debugger." t)
   (add-hook 'js-mode-hook
             (lambda () (flymake-mode t))))
 
+;;; flymake-easy -----------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/flymake-easy")
+(require 'flymake-easy)
+
 ;;; flymake-ruby -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/flymake-ruby")
 (require 'flymake-ruby)
@@ -465,13 +469,6 @@ and source-file directory for your debugger." t)
 (require 'direx)
 (push '(direx:direx-mode :position left :width 25 :dedicated t) popwin:special-display-config)
 (global-set-key (kbd "C-x C-j") 'direx:jump-to-directory-other-window)
-
-;; nxml
-(setq auto-mode-alist (cons '("\.xaml$" . nxml-mode) auto-mode-alist))
-
-;; csharp-mode
-(add-to-list 'load-path "~/.emacs.d/csharp-mode")
-(require 'csharp-mode)
 
 ;; e2wm
 (add-to-list 'load-path "~/.emacs.d/emacs-window-layout")
