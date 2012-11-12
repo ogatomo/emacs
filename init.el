@@ -363,12 +363,6 @@ and source-file directory for your debugger." t)
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
 
-;;; gist ---------------------------------------------------------
-(require 'gist)
-(setq gist-view-gist t)
-(setq github-user "ogatomo")
-(load "github-token") ; (setq github-token "xxxxxxxxxx")
-
 ;;; auto-compile -------------------------------------------------
 (require 'auto-async-byte-compile)
 (setq auto-async-byte-compile-exclude-files-regexp "/junk/")
@@ -378,29 +372,6 @@ and source-file directory for your debugger." t)
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
-
-;;; twitting-mode -----------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/twittering-mode")
-(autoload 'twit "twittering-mode" nil t)
-(setq twittering-icon-mode t)
-(setq twittering-jojo-mode t)
-(defun twittering-mode-hook-func ()
-  (set-face-bold-p 'twittering-username-face t)
-  (set-face-foreground 'twittering-username-face "DeepSkyBlue3")
-  (set-face-foreground 'twittering-uri-face "gray50")
-  (define-key twittering-mode-map (kbd "<") 'my-beginning-of-buffer)
-  (define-key twittering-mode-map (kbd ">") 'my-end-of-buffer)
-  (define-key twittering-mode-map (kbd "F") 'twittering-favorite))
-
-(add-hook 'twittering-mode-hook 'twittering-mode-hook-func)
-
-; OAuth
-;(setq twittering-oauth-access-token-alist
-;       '(("oauth_token" . "トークン文字列")
-;         ("oauth_token_secret" . "トークン文字列")
-;         ("user_id" . "自分のユーザID")
-;         ("screen_name" . "自分のスクリーンネーム")))
-(load "twittering-oauth-access-token")
 
 ;;; flymake -----------------------------------------------------
 (when (require 'flymake nil t)
