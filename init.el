@@ -12,7 +12,12 @@
 
 ;;; カラムを見やすくする
 (custom-set-variables '(line-number-mode t)
-		      '(column-number-mode t))
+		      '(column-number-mode t)
+                      '(menu-bar-mode nil)
+                      '(tool-bar-mode 0))
+
+;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
+(global-auto-revert-mode t)
 
 (if window-system (progn
   ;;; フレーム移動用のキーバインド
@@ -77,9 +82,6 @@
 
 ;;; ツールバーを非表示
 (if (functionp 'tool-bar-mode) (tool-bar-mode 0))
-
-;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
-(global-auto-revert-mode 1)
 
 ;;; キー設定
 (define-key global-map "\C-t" 'other-window) ;バッファの移動をCtrl+tで行えるようにする
