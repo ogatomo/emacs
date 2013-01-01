@@ -462,3 +462,9 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/emacs-window-manager")
 (require 'e2wm)
 (global-set-key (kbd "M-+") 'e2wm:start-management)
+
+;; markdown-mode
+(add-to-list 'load-path "~/.emacs.d/markdown-mode")
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode)) 
