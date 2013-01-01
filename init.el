@@ -16,6 +16,18 @@
                       '(menu-bar-mode nil)
                       '(tool-bar-mode 0))
 
+(defun copy-from-osx ()
+    (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+    (let ((process-connection-type nil))
+          (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+	          (process-send-string proc text)
+		        (process-send-eof proc))))
+
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
+
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode t)
 
@@ -212,6 +224,8 @@
   "run rubydb on program file in buffer *gud-file*.
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
+
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))	  
 
 ;;; rvm      --------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/rvm")
