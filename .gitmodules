@@ -58,3 +58,6 @@
 [submodule "helm"]
 	path = helm
 	url = git://github.com/emacs-helm/helm.git
+[submodule "undo-tree"]
+	path = undo-tree
+	url = git://github.com/emacsmirror/undo-tree.git

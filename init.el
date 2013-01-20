@@ -151,6 +151,12 @@
 ;;; recentf   ---------------------------------------------------
 (setq recentf-max-saved-items 1000)
 
+;;; undo-tree  ---------------------------------------------------
+; M-_     : redo
+; C-x u   : undo-tree-visualize 終了はq
+(add-to-list 'load-path "~/.emacs.d/undo-tree")
+(when (require 'undo-tree nil t) (global-undo-tree-mode))
+
 ;;; helm ---- ---------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
