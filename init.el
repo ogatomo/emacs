@@ -157,15 +157,31 @@
 (add-to-list 'load-path "~/.emacs.d/undo-tree")
 (when (require 'undo-tree nil t) (global-undo-tree-mode))
 
+;;; magit --------------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/magit")
+(require 'magit)
+(require 'magit-svn)
+(require 'magit-topgit)
+(require 'magit-stgit)
+
+;; magit
+(global-set-key (kbd "C-c g") 'magit-status)
+
 ;;; helm ---- ---------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
 (require 'helm-ring)
-(global-set-key (kbd "C-c h") 'helm-mini)
+(global-set-key "\M-p" 'helm-mini)
 (helm-mode 1)
 
-(global-set-key "\M-y" 'helm-ring)
-(global-set-key "\M-[" 'helm-imenu)
+(global-set-key "\M-y" 'helm-show-kill-ring)
+(global-set-key "\M-i" 'helm-imenu)
+
+;; helm-git
+(add-to-list 'load-path "~/.emacs.d/helm-git")
+(require 'helm-git)
+(global-set-key (kbd "C-c p") 'helm-git-find-files)
+
 
 ;;; php-mode ---------------------------------------------------
 ; C-.     : 引数リスト表示
@@ -348,13 +364,6 @@ and source-file directory for your debugger." t)
 ; mampでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
-
-;;; magit --------------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/magit")
-(require 'magit)
-(require 'magit-svn)
-(require 'magit-topgit)
-(require 'magit-stgit)
 
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
