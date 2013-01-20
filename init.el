@@ -113,9 +113,9 @@
 
 ;;; 環境変数PATH設定
 (dolist (dir (list
-              "/opt/local/bin"
-	      "/opt/local/sbin"
-	      "/opt/local/man"
+              "/usr/local/bin"
+	      "/usr/local/sbin"
+	      "/usr/local/man"
               (expand-file-name "~/bin")
               (expand-file-name "~/.emacs.d/bin")
               ))
@@ -123,8 +123,6 @@
    (setenv "PATH" (concat dir ":" (getenv "PATH")))
    (setq exec-path (append (list dir) exec-path))))
 
-;;; elisp path
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 
 ;;; dired   -----------------------------------------------------
@@ -153,29 +151,15 @@
 ;;; recentf   ---------------------------------------------------
 (setq recentf-max-saved-items 1000)
 
-;;; anything  ---------------------------------------------------
-(require 'anything-startup)
-(require 'recentf-ext)
+;;; helm ---- ---------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/helm")
+(require 'helm-config)
+(require 'helm-ring)
+(global-set-key (kbd "C-c h") 'helm-mini)
+(helm-mode 1)
 
-(setq anything-sources (list anything-c-source-buffers
-			 anything-c-source-files-in-current-dir+
-			 anything-c-source-recentf
-                             ))
-
-(define-key anything-map (kbd "C-p") 'anything-previous-line)
-(define-key anything-map (kbd "C-n") 'anything-next-line)
-(define-key anything-map (kbd "C-v") 'anything-next-source)
-(define-key anything-map (kbd "M-v") 'anything-previous-source)
-(define-key global-map "\M-p" 'anything)
-
-;kill-ring の最大値. デフォルトは 30.
-(setq kill-ring-max 50)
-
-;anything で対象とするkill-ring の要素の長さの最小値.
-;デフォルトは 10.
-(setq anything-kill-ring-threshold 20)
-(global-set-key "\M-y" 'anything-show-kill-ring)
-(global-set-key "\M-[" 'anything-imenu)
+(global-set-key "\M-y" 'helm-ring)
+(global-set-key "\M-[" 'helm-imenu)
 
 ;;; php-mode ---------------------------------------------------
 ; C-.     : 引数リスト表示
@@ -257,7 +241,6 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/rcodetools")
 
 (require 'rcodetools)
-(require 'anything-rcodetools)
 
 (setq rct-find-tag-if-available nil)
 (setq rct-get-all-methods-command "PAGER=cat fri -l")
@@ -355,15 +338,6 @@ and source-file directory for your debugger." t)
 ; C-x u   : undo-tree-visualize 終了はq
 (when (require 'undo-tree nil t) (global-undo-tree-mode))
 
-;;; point-undo ---------------------------------------------------
-(require 'point-undo)
-(define-key global-map (kbd "<f7>") 'point-undo)
-
-;;; goto-chg.el --------------------------------------------------
-(require 'goto-chg)
-(define-key global-map (kbd "<f8>") 'goto-last-change)
-(define-key global-map (kbd "S-<f8>") 'goto-last-change-reverse)
-
 ;;; geben  -------------------------------------------------------
 ; mampでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
@@ -378,11 +352,6 @@ and source-file directory for your debugger." t)
 
 ;;; github-code-search -------------------------------------------
 (require 'github-search)
-
-;;; auto-compile -------------------------------------------------
-(require 'auto-async-byte-compile)
-(setq auto-async-byte-compile-exclude-files-regexp "/junk/")
-(add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
 
 ;;; uniquify -----------------------------------------------------
 (require 'uniquify)
@@ -433,14 +402,8 @@ and source-file directory for your debugger." t)
   (add-hook 'js-mode-hook
             (lambda () (flymake-mode t))))
 
-;;; flymake-easy -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/flymake-easy")
 (require 'flymake-easy)
-
-;;; flymake-ruby -----------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/flymake-ruby")
-(require 'flymake-ruby)
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
 
 ;; navi2ch
 (add-to-list 'load-path "~/.emacs.d/navi2ch")
