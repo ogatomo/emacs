@@ -133,14 +133,11 @@
 (run-with-idle-timer 0.5 t 'auto-save-buffers) 
 
 ;;; dired   -----------------------------------------------------
-(defun uenox-dired-winstart ()
-  "Type '\\[uenox-dired-winstart]': win-start the current line's file."
+(defun dired-open-mac ()
   (interactive)
-  (if (eq major-mode 'dired-mode)
-      (let ((fname (dired-get-filename)))
-	(call-process-shell-command (concat "/usr/bin/open \"" fname "\"")) ;;mac
-        (message "opening... %s" fname)
-)))
+  (let ((fname (dired-get-file-for-visit)))
+    (if (file-exists-p fname)
+	(shell-command (concat "open '" fname "'" nil )))))
 
 (add-hook 'dired-mode-hook
           (lambda ()
@@ -152,7 +149,7 @@
 
 	    ; dired のキー割り当て追加。zキーを押すと、
 	    ; Macに関連付けられたアプリケーションでファイルを開けるようにする。
-	    (define-key dired-mode-map "z" 'uenox-dired-winstart)
+	    (define-key dired-mode-map "z" 'dired-open-mac)
 	    )) 
 
 ;;; recentf   ---------------------------------------------------
