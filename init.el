@@ -128,6 +128,10 @@
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 
+;;; auto-save-buffer --------------------------------------------
+(require 'auto-save-buffers)
+(run-with-idle-timer 0.5 t 'auto-save-buffers) 
+
 ;;; dired   -----------------------------------------------------
 (defun uenox-dired-winstart ()
   "Type '\\[uenox-dired-winstart]': win-start the current line's file."
@@ -179,6 +183,8 @@
 
 (global-set-key "\M-y" 'helm-show-kill-ring)
 (global-set-key "\M-i" 'helm-imenu)
+(custom-set-variables
+ '(helm-buffer-max-length 40))
 
 ;; helm-git
 (add-to-list 'load-path "~/.emacs.d/helm-git")
