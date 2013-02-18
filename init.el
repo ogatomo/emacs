@@ -451,4 +451,13 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/markdown-mode")
 (autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode)) 
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;; Dash
+(defun dash ()
+  (interactive)
+  (shell-command
+   (format "open dash://%s"
+           (or (thing-at-point 'symbol) ""))))
+
+
