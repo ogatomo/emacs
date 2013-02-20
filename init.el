@@ -453,11 +453,8 @@ and source-file directory for your debugger." t)
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 
-;; Dash
-(defun dash ()
-  (interactive)
-  (shell-command
-   (format "open dash://%s"
-           (or (thing-at-point 'symbol) ""))))
-
-
+;; dash-at-point
+(add-to-list 'load-path "~/.emacs.d/dash-at-point")
+(autoload 'dash-at-point "dash-at-point"
+            "Search the word at point with Dash." t nil)
+(global-set-key "\C-cd" 'dash-at-point)

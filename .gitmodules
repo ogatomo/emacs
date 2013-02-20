@@ -64,3 +64,6 @@
 [submodule "helm-git"]
 	path = helm-git
 	url = git://github.com/maio/helm-git.git
+[submodule "dash-at-point"]
+	path = dash-at-point
+	url = git://github.com/stanaka/dash-at-point.git
