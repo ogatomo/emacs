@@ -10,6 +10,9 @@
 ;;; .#* とかのバックアップファイルを作らない
 (setq auto-save-default nil)
 
+;;; ビープ音を消す
+(setq visible-bell t)
+
 ;;; カラムを見やすくする
 (custom-set-variables '(line-number-mode t)
 		      '(column-number-mode t)
@@ -36,72 +39,74 @@
 ;;; 他のソフトでファイルを変更した場合に、バッファを自動再読み込み
 (global-auto-revert-mode t)
 
-(if window-system (progn
-  ;;; フレーム移動用のキーバインド
-  (define-key global-map [C-tab] 'other-frame)
+(if window-system
+    (progn
+      ;; ウィンドウサイズ
+      (setq initial-frame-alist '((width . 120) (height . 50) (left . 120)))
+      
+      ;; フレーム移動用のキーバインド
+      (define-key global-map [C-tab] 'other-frame)
 
-  ;;; スクロールバーを非表示
-  (scroll-bar-mode nil)
+      ;; スクロールバーを非表示
+      (scroll-bar-mode nil)
 
-  ;;; スクロールを１行づつ
-  (setq scroll-step 1)
+      ;; スクロールを１行づつ
+      (setq scroll-step 1)
 
-  ;; タイトルバーにファイル名表示
-  (setq frame-title-format (format "%%f"))
+      ;; タイトルバーにファイル名表示
+      (setq frame-title-format (format "%%f"))
 
-  ;; ウィンドウの透明化
-  (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
+      ;; ウィンドウの透明化
+      (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
 
-  ;;; font
-  ;; フォントセットを作る
-  (let* ((fontset-name "myfonts") ; フォントセットの名前
-       (size 12) ; ASCIIフォントのサイズ [9/10/12/14/15/17/19/20/...]
-       (asciifont "Menlo") ; ASCIIフォント
-       (jpfont "Hiragino Maru Gothic ProN") ; 日本語フォント
-       (font (format "%s-%d:weight=normal:slant=normal" asciifont size))
-       (fontspec (font-spec :family asciifont))
-       (jp-fontspec (font-spec :family jpfont)) 
-       (fsn (create-fontset-from-ascii-font font nil fontset-name)))
-  (set-fontset-font fsn 'japanese-jisx0213.2004-1 jp-fontspec)
-  (set-fontset-font fsn 'japanese-jisx0213-2 jp-fontspec)
-  (set-fontset-font fsn 'katakana-jisx0201 jp-fontspec) ; 半角カナ
-  (set-fontset-font fsn '(#x0080 . #x024F) fontspec) ; 分音符付きラテン
-  (set-fontset-font fsn '(#x0370 . #x03FF) fontspec) ; ギリシャ文字
-  )
+      ;; フォントセットを作る
+      (let* ((fontset-name "myfonts") ; フォントセットの名前
+	     (size 12) ; ASCIIフォントのサイズ [9/10/12/14/15/17/19/20/...]
+	     (asciifont "Menlo") ; ASCIIフォント
+	     (jpfont "Hiragino Maru Gothic ProN") ; 日本語フォント
+	     (font (format "%s-%d:weight=normal:slant=normal" asciifont size))
+	     (fontspec (font-spec :family asciifont))
+	     (jp-fontspec (font-spec :family jpfont)) 
+	     (fsn (create-fontset-from-ascii-font font nil fontset-name)))
+	(set-fontset-font fsn 'japanese-jisx0213.2004-1 jp-fontspec)
+	(set-fontset-font fsn 'japanese-jisx0213-2 jp-fontspec)
+	(set-fontset-font fsn 'katakana-jisx0201 jp-fontspec) ; 半角カナ
+	(set-fontset-font fsn '(#x0080 . #x024F) fontspec) ; 分音符付きラテン
+	(set-fontset-font fsn '(#x0370 . #x03FF) fontspec) ; ギリシャ文字
+	)
 
-  ;; デフォルトのフレームパラメータでフォントセットを指定
-  (add-to-list 'default-frame-alist '(font . "fontset-myfonts"))
+      ;; デフォルトのフレームパラメータでフォントセットを指定
+      (add-to-list 'default-frame-alist '(font . "fontset-myfonts"))
 
-  ;; フォントサイズの比を設定
-  (dolist (elt '(("^-apple-hiragino.*" . 1.2)
-	       (".*osaka-bold.*" . 1.2)
-	       (".*osaka-medium.*" . 1.2)
-	       (".*courier-bold-.*-mac-roman" . 1.0)
-	       (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
-	       (".*monaco-bold-.*-mac-roman" . 0.9)))
-  (add-to-list 'face-font-rescale-alist elt))
+      ;; フォントサイズの比を設定
+      (dolist (elt '(("^-apple-hiragino.*" . 1.2)
+		     (".*osaka-bold.*" . 1.2)
+		     (".*osaka-medium.*" . 1.2)
+		     (".*courier-bold-.*-mac-roman" . 1.0)
+		     (".*monaco cy-bold-.*-mac-cyrillic" . 0.9)
+		     (".*monaco-bold-.*-mac-roman" . 0.9)))
+	(add-to-list 'face-font-rescale-alist elt))
 
 
-  ;; デフォルトフェイスにフォントセットを設定
-  ;; # これは起動時に default-frame-alist に従ったフレームが
-  ;; # 作成されない現象への対処
-  (set-face-font 'default "fontset-myfonts")
+      ;; デフォルトフェイスにフォントセットを設定
+      ;; # これは起動時に default-frame-alist に従ったフレームが
+      ;; # 作成されない現象への対処
+      (set-face-font 'default "fontset-myfonts")
 
-  (setenv "LANG" "ja_JP.UTF-8")
-  (setenv "LC_CTYPE" "ja_JP.UTF-8")
-  (setenv "LC_MESSAGES" "ja_JP.UTF-8")
-  (setenv "LC_MONETARY" "ja_JP.UTF-8")
-  (setenv "LC_NUMERIC" "ja_JP.UTF-8")
-  (setenv "LC_TIME" "ja_JP.UTF-8")
-  (setenv "LC_ALL" "")
+      (setenv "LANG" "ja_JP.UTF-8")
+      (setenv "LC_CTYPE" "ja_JP.UTF-8")
+      (setenv "LC_MESSAGES" "ja_JP.UTF-8")
+      (setenv "LC_MONETARY" "ja_JP.UTF-8")
+      (setenv "LC_NUMERIC" "ja_JP.UTF-8")
+      (setenv "LC_TIME" "ja_JP.UTF-8")
+      (setenv "LC_ALL" "")
 
-  (add-to-list 'load-path "~/.emacs.d/color-theme")
-  (require 'color-theme)
-  (eval-after-load "color-theme"
-    '(progn
-       (color-theme-initialize)
-       (color-theme-pierson)))
-
+      (add-to-list 'load-path "~/.emacs.d/color-theme")
+      (require 'color-theme)
+      (eval-after-load "color-theme"
+	'(progn
+	   (color-theme-initialize)
+	   (color-theme-pierson)))
 ))
 
 ;;; ツールバーを非表示
