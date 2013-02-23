@@ -147,6 +147,12 @@
     (if (file-exists-p fname)
 	(shell-command (concat "open '" fname "'" nil )))))
 
+(defun dired-open-mac-terminal ()
+  (interactive)
+  (let ((fname (dired-get-file-for-visit)))
+    (if (file-exists-p fname)
+	(shell-command (concat "open -a Terminal.app '" fname "'" nil )))))
+
 (add-hook 'dired-mode-hook
           (lambda ()
 	    ; dired-mode時もバッファ切替をC-tでできるようにする
@@ -158,7 +164,12 @@
 	    ; dired のキー割り当て追加。zキーを押すと、
 	    ; Macに関連付けられたアプリケーションでファイルを開けるようにする。
 	    (define-key dired-mode-map "z" 'dired-open-mac)
-	    )) 
+
+            ; dired のキー割り当て追加。_キーを押すと、
+	    ; Terminalでディレクトリまでcdして開けるようにする。
+	    (define-key dired-mode-map "_" 'dired-open-mac-terminal)
+
+	    ))
 
 ;;; recentf   ---------------------------------------------------
 (setq recentf-max-saved-items 1000)
