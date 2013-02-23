@@ -47,7 +47,7 @@
   (setq scroll-step 1)
 
   ;; タイトルバーにファイル名表示
-  (setq frame-title-format (format "%%f - Emacs@%s" (system-name)))
+  (setq frame-title-format (format "%%f"))
 
   ;; ウィンドウの透明化
   (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
@@ -95,6 +95,13 @@
   (setenv "LC_TIME" "ja_JP.UTF-8")
   (setenv "LC_ALL" "")
 
+  (add-to-list 'load-path "~/.emacs.d/color-theme")
+  (require 'color-theme)
+  (eval-after-load "color-theme"
+    '(progn
+       (color-theme-initialize)
+       (color-theme-pierson)))
+
 ))
 
 ;;; ツールバーを非表示
@@ -112,10 +119,8 @@
 ;;M-g で指定行へジャンプ
 (global-set-key "\M-g" 'goto-line)
 
-;;; 下線をつける
-(setq hl-line-face 'hlline-face)
-(setq hl-line-face 'underline)
-(global-hl-line-mode)
+;;; init.el再読込用
+(global-set-key [f12] 'eval-buffer)
 
 ;;; 環境変数PATH設定
 (dolist (dir (list
