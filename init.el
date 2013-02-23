@@ -16,6 +16,9 @@
                       '(menu-bar-mode nil)
                       '(tool-bar-mode 0))
 
+;;; デフォルト文字コード
+(set-default-coding-systems 'utf-8)
+
 (defun copy-from-osx ()
     (shell-command-to-string "pbpaste"))
 
@@ -446,6 +449,7 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/emacs-window-manager")
 (require 'e2wm)
 (global-set-key (kbd "M-+") 'e2wm:start-management)
+;; C-c ; Q 終了
 
 ;; markdown-mode
 (add-to-list 'load-path "~/.emacs.d/markdown-mode")
