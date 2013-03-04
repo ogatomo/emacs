@@ -318,6 +318,7 @@ and source-file directory for your debugger." t)
 ;;; auto-complete ------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/popup")
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
+
 (require 'auto-complete-config)
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complate-dict")
@@ -325,14 +326,22 @@ and source-file directory for your debugger." t)
 
 (global-auto-complete-mode t)
 (ac-set-trigger-key "TAB")
-(setq ac-auto-start nil)
-(setq ac-candidate-max 20)
+;;; (setq ac-auto-start nil)
+(setq ac-auto-start 2)
+(setq ac-candidate-max 40)
+
+;;; auto-complete-etag -------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/auto-complete-etags")
+(require 'auto-complete-etags)
+(add-to-list 'ac-sources 'ac-source-etags)
+(setq ac-etags-use-document t)
 
 ;(setq ac-modes (append ac-modes '(objc-mode)))
 (add-to-list 'ac-modes 'objc-mode) 
 (global-set-key "\M-/" 'ac-start)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+
 
 ;;; Objective-C Mode ---------------------------------------------
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
