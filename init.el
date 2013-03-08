@@ -11,7 +11,7 @@
 (setq auto-save-default nil)
 
 ;;; ビープ音を消す
-(setq visible-bell t)
+;(setq visible-bell t)
 
 ;;; カラムを見やすくする
 (custom-set-variables '(line-number-mode t)
@@ -143,7 +143,7 @@
 
 ;;; auto-save-buffer --------------------------------------------
 (require 'auto-save-buffers)
-(run-with-idle-timer 0.5 t 'auto-save-buffers) 
+(run-with-idle-timer 1 t 'auto-save-buffers) 
 
 ;;; dired   -----------------------------------------------------
 (defun dired-open-mac ()
@@ -195,7 +195,7 @@
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
-;;; helm ---- ---------------------------------------------------
+;;; helm -------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
 (require 'helm-ring)
@@ -263,11 +263,6 @@ and source-file directory for your debugger." t)
 
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))	  
 
-;;; rvm      --------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/rvm")
-(require 'rvm)
-(rvm-use-default)
-
 ;;; ruby-debug --------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/ruby-debug-extra/emacs")
 (require 'rdebug)
@@ -293,7 +288,6 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/rcodetools")
 
 (require 'rcodetools)
-
 (setq rct-find-tag-if-available nil)
 (setq rct-get-all-methods-command "PAGER=cat fri -l")
 
@@ -341,7 +335,6 @@ and source-file directory for your debugger." t)
 (global-set-key "\M-/" 'ac-start)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
-
 
 ;;; Objective-C Mode ---------------------------------------------
 (add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
@@ -413,49 +406,6 @@ and source-file directory for your debugger." t)
 (setq uniquify-ignore-buffers-re "*[^*]+}")
 
 ;;; flymake -----------------------------------------------------
-(when (require 'flymake nil t)
-  (global-set-key "\C-cd" 'flymake-display-err-menu-for-current-line)
-  ;; PHP
-  (when (not (fboundp 'flymake-php-init))
-    (defun flymake-php-init ()
-      (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                         'flymake-create-temp-inplace))
-             (local-file (file-relative-name
-                          temp-file
-                          (file-name-directory buffer-file-name))))
-        (list "php" (list "-f" local-file "-l"))))
-    (setq flymake-allowed-file-name-masks
-          (append
-           flymake-allowed-file-name-masks
-           '(("\.php[345]?$" flymake-php-init))))
-    (setq flymake-err-line-patterns
-          (cons
-           '("\(\(?:Parse error\|Fatal error\|Warning\): .*\) in \(.*\) on line \([0-9]+\)" 2 3 nil 1)
-           flymake-err-line-patterns)))
-  ;; JavaScript
-  (when (not (fboundp 'flymake-javascript-init))
-    (defun flymake-javascript-init ()
-      (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                         'flymake-create-temp-inplace))
-             (local-file (file-relative-name
-                          temp-file
-                          (file-name-directory buffer-file-name))))
-        (list "/usr/local/bin/jsl" (list "-process" local-file))))
-    (setq flymake-allowed-file-name-masks
-          (append
-           flymake-allowed-file-name-masks
-           '(("\.json$" flymake-javascript-init)
-             ("\.js$" flymake-javascript-init))))
-    (setq flymake-err-line-patterns
-          (cons
-           '("\(.+\)(\([0-9]+\)): \(?:lint \)?\(\(?:Warning\|SyntaxError\):.+\)" 1 2 nil 3)
-           flymake-err-line-patterns)))
-
-  (add-hook 'php-mode-hook
-            '(lambda () (flymake-mode t)))
-  (add-hook 'js-mode-hook
-            (lambda () (flymake-mode t))))
-
 (add-to-list 'load-path "~/.emacs.d/flymake-easy")
 (require 'flymake-easy)
 
