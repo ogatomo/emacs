@@ -314,8 +314,6 @@ and source-file directory for your debugger." t)
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
 
 (require 'auto-complete-config)
-
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complate-dict")
 (ac-config-default)
 
 (global-auto-complete-mode t)
@@ -408,10 +406,6 @@ and source-file directory for your debugger." t)
 ;;; flymake -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/flymake-easy")
 (require 'flymake-easy)
-
-;; navi2ch
-(add-to-list 'load-path "~/.emacs.d/navi2ch")
-(autoload 'navi2ch "navi2ch" "Navigator for 2ch for Emacs" t)
 
 ;; popwin
 (add-to-list 'load-path "~/.emacs.d/popwin")
