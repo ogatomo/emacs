@@ -10,9 +10,6 @@
 ;;; .#* とかのバックアップファイルを作らない
 (setq auto-save-default nil)
 
-;;; ビープ音を消す
-;(setq visible-bell t)
-
 ;;; カラムを見やすくする
 (custom-set-variables '(line-number-mode t)
 		      '(column-number-mode t)
@@ -312,21 +309,31 @@ and source-file directory for your debugger." t)
 ;;; auto-complete ------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/popup")
 (add-to-list 'load-path "~/.emacs.d/auto-complete")
+(add-to-list 'load-path "~/.emacs.d/auto-complete-etags")
 
 (require 'auto-complete-config)
-(ac-config-default)
+(require 'auto-complete-etags)
+
+;(add-to-list 'ac-sources 'ac-source-etags)
+(setq ac-etags-use-document t)
+
+(defvar ac-source-etags
+  '((candidates . (lambda ()
+		    (all-completions ac-target (tags-completion-table))))
+    (candidate-face . ac-candidate-face)
+    (selection-face . ac-selection-face)
+    (requires . 3))
+  "etags をソースにする")
+
+(add-hook 'ruby-mode-hook
+	  (lambda ()
+	    (push 'ac-source-etags ac-sources)))
 
 (global-auto-complete-mode t)
 (ac-set-trigger-key "TAB")
 ;;; (setq ac-auto-start nil)
 (setq ac-auto-start 2)
 (setq ac-candidate-max 40)
-
-;;; auto-complete-etag -------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/auto-complete-etags")
-(require 'auto-complete-etags)
-(add-to-list 'ac-sources 'ac-source-etags)
-(setq ac-etags-use-document t)
 
 ;(setq ac-modes (append ac-modes '(objc-mode)))
 (add-to-list 'ac-modes 'objc-mode) 
@@ -370,8 +377,6 @@ and source-file directory for your debugger." t)
 ;;; yasnippet  ---------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/yasnippet")
 (require 'yasnippet)
-;(setq yas/snippet-dirs '("~/.emacs.d/snippets" "~/.emacs.d/extras/imported"))
-;(setq yas/snippet-dirs '("~/.emacs.d/yasnippet/snippets" "~/.emacs.d/extras/imported"))
 (setq yas/snippet-dirs '("~/.emacs.d/yasnippet/snippets" "~/.emacs.d/yasnippets-rspec/rspec-snippets"))
 (yas/global-mode 1)
 
