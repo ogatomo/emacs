@@ -98,12 +98,6 @@
       (setenv "LC_TIME" "ja_JP.UTF-8")
       (setenv "LC_ALL" "")
 
-      (add-to-list 'load-path "~/.emacs.d/color-theme")
-      (require 'color-theme)
-      (eval-after-load "color-theme"
-	'(progn
-	   (color-theme-initialize)
-	   (color-theme-pierson)))
 ))
 
 ;;; ツールバーを非表示
