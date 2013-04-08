@@ -39,7 +39,7 @@
 (if window-system
     (progn
       ;; ウィンドウサイズ
-      (setq initial-frame-alist '((width . 120) (height . 50) (left . 120)))
+      ;; (setq initial-frame-alist '((width . 120) (height . 50) (left . 120)))
       
       ;; フレーム移動用のキーバインド
       (define-key global-map [C-tab] 'other-frame)
@@ -129,6 +129,12 @@
  (when (and (file-exists-p dir) (not (member dir exec-path)))
    (setenv "PATH" (concat dir ":" (getenv "PATH")))
    (setq exec-path (append (list dir) exec-path))))
+
+;;; rbenv設定
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:"
+                       (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
+                      (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 
