@@ -38,9 +38,6 @@
 
 (if window-system
     (progn
-      ;; ウィンドウサイズ
-      ;; (setq initial-frame-alist '((width . 120) (height . 50) (left . 120)))
-      
       ;; フレーム移動用のキーバインド
       (define-key global-map [C-tab] 'other-frame)
 
