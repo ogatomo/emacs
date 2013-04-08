@@ -262,9 +262,6 @@ and source-file directory for your debugger." t)
 (require 'rdebug)
 
 ;;; ruby on rails -----------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/rinari")
-(require 'rinari)
-
 (add-to-list 'load-path "~/.emacs.d/rhtml")
 (require 'rhtml-mode)
 (add-hook 'rhtml-mode-hook
