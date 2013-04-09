@@ -189,6 +189,11 @@
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
 
+;;; popwin -----------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/popwin")
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)
+
 ;;; helm -------------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
@@ -206,6 +211,9 @@
 (require 'helm-git)
 (global-set-key (kbd "C-c p") 'helm-git-find-files)
 
+;; popwin
+(setq display-buffer-function 'popwin:display-buffer)
+(push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
 
 ;;; php-mode ---------------------------------------------------
 ; C-.     : 引数リスト表示
@@ -405,11 +413,6 @@ and source-file directory for your debugger." t)
 ;;; flymake -----------------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/flymake-easy")
 (require 'flymake-easy)
-
-;; popwin
-(add-to-list 'load-path "~/.emacs.d/popwin")
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
 
 ;; direx
 (add-to-list 'load-path "~/.emacs.d/direx")
