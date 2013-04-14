@@ -265,10 +265,6 @@ and source-file directory for your debugger." t)
 
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))	  
 
-;;; ruby-debug --------------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/ruby-debug-extra/emacs")
-(require 'rdebug)
-
 ;;; ruby on rails -----------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/rhtml")
 (require 'rhtml-mode)
@@ -276,7 +272,11 @@ and source-file directory for your debugger." t)
     (lambda () (rinari-launch)))
 
 (add-to-list 'auto-mode-alist '("\\.rhtml$" . rhtml-mode)) 
-(add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode)) 
+(add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
+
+;;; cucumber-mode -----------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/cucumber.el")
+(require 'feature-mode)
 
 ;;; rcodetool ---------------------------------------------------
 ; gem install rcodetools

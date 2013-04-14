@@ -64,3 +64,6 @@
 [submodule "etags-table"]
 	path = etags-table
 	url = git://github.com/emacsmirror/etags-table.git
+[submodule "cucumber.el"]
+	path = cucumber.el
+	url = https://github.com/michaelklishin/cucumber.el.git
