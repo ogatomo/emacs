@@ -152,6 +152,13 @@
     (if (file-exists-p fname)
 	(shell-command (concat "open -a Terminal.app '" fname "'" nil )))))
 
+;;;;ファイル作成
+(defun dired-create-file (file-name)
+  (interactive "F Create file: ")
+  (write-region "" nil file-name nil nil nil))
+
+(define-key dired-mode-map "c" 'dired-create-file)
+
 (add-hook 'dired-mode-hook
           (lambda ()
 	    ; dired-mode時もバッファ切替をC-tでできるようにする
