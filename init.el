@@ -157,8 +157,6 @@
   (interactive "F Create file: ")
   (write-region "" nil file-name nil nil nil))
 
-(define-key dired-mode-map "c" 'dired-create-file)
-
 (add-hook 'dired-mode-hook
           (lambda ()
 	    ; dired-mode時もバッファ切替をC-tでできるようにする
@@ -175,6 +173,7 @@
 	    ; Terminalでディレクトリまでcdして開けるようにする。
 	    (define-key dired-mode-map "_" 'dired-open-mac-terminal)
 
+	    (define-key dired-mode-map "c" 'dired-create-file)
 	    ))
 
 ;;; recentf   ---------------------------------------------------
@@ -205,6 +204,7 @@
 (add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm-config)
 (require 'helm-ring)
+
 (global-set-key "\M-p" 'helm-mini)
 (helm-mode 1)
 
@@ -217,6 +217,13 @@
 (add-to-list 'load-path "~/.emacs.d/helm-git")
 (require 'helm-git)
 (global-set-key (kbd "C-c p") 'helm-git-find-files)
+
+;; 自動補完を無効
+(custom-set-variables '(helm-ff-auto-update-initial-value nil))
+;; C-hでバックスペースと同じように文字を削除
+(define-key helm-c-read-file-map (kbd "C-h") 'delete-backward-char)
+;; TABで任意補完。選択肢が出てきたらC-nやC-pで上下移動してから決定することも可能
+(define-key helm-c-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
 ;; popwin
 (setq display-buffer-function 'popwin:display-buffer)
