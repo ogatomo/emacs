@@ -120,6 +120,7 @@
               "/usr/local/bin"
 	      "/usr/local/sbin"
 	      "/usr/local/man"
+	      "/usr/local/share/npm/bin"
               (expand-file-name "~/bin")
               (expand-file-name "~/.emacs.d/bin")
               ))
@@ -406,6 +407,14 @@ and source-file directory for your debugger." t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . espresso-mode))
 (autoload 'espresso-mode "espresso" nil t)
 
+;;; coffee-mode --------------------------------------------------
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
+(setq whitespace-action '(auto-cleanup))
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
+
 ;;; undo-tree  ---------------------------------------------------
 ; M-_     : redo
 ; C-x u   : undo-tree-visualize 終了はq
@@ -415,9 +424,6 @@ and source-file directory for your debugger." t)
 ; mampでxdebug使う時に使用
 (add-to-list 'load-path "~/.emacs.d/geben")
 (autoload 'geben "geben" "DBGp protocol front-end" t)
-
-;;; github-code-search -------------------------------------------
-(require 'github-search)
 
 ;;; uniquify -----------------------------------------------------
 (require 'uniquify)
