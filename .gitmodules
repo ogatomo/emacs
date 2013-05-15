@@ -70,3 +70,6 @@
 [submodule "coffee-mode"]
 	path = coffee-mode
 	url = https://github.com/defunkt/coffee-mode.git
+[submodule "eproject"]
+	path = eproject
+	url = git://repo.or.cz/eproject.git
