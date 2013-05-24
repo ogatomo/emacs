@@ -16,6 +16,9 @@
                       '(menu-bar-mode nil)
                       '(tool-bar-mode 0))
 
+;;; ウインドウ分割時に画面外へ出る文章を折り返す
+(setq truncate-partial-width-windows nil)
+
 ;;; デフォルト文字コード
 (set-default-coding-systems 'utf-8)
 
@@ -135,6 +138,13 @@
                       (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
+
+;; jaspace
+(require 'jaspace)
+;; 全角空白を表示させる。
+(setq jaspace-alternate-jaspace-string "□")
+;; タブ記号を表示。
+(setq jaspace-highlight-tabs ?^ ) ; use ^ as a tab marker
 
 ;;; auto-save-buffer --------------------------------------------
 (require 'auto-save-buffers)
@@ -278,7 +288,9 @@
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
-(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))	  
+(add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile.lock$" . ruby-mode))
 
 ;;; ruby on rails -----------------------------------------------
 (add-to-list 'load-path "~/.emacs.d/rhtml")
