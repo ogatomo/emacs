@@ -293,6 +293,12 @@ and source-file directory for your debugger." t)
 (add-to-list 'auto-mode-alist '("Gemfile.lock$" . ruby-mode))
 
 ;;; ruby on rails -----------------------------------------------
+(require 'findr)
+(add-to-list 'load-path "~/.emacs.d/rinari")
+
+(require 'rinari)
+(global-rinari-mode)
+
 (add-to-list 'load-path "~/.emacs.d/rhtml")
 (require 'rhtml-mode)
 (add-hook 'rhtml-mode-hook
