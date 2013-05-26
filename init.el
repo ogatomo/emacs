@@ -299,9 +299,6 @@ and source-file directory for your debugger." t)
 (require 'rinari)
 (global-rinari-mode)
 
-(require 'ido)
-(ido-mode t)
-
 (add-to-list 'load-path "~/.emacs.d/rhtml")
 (require 'rhtml-mode)
 (add-hook 'rhtml-mode-hook
