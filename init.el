@@ -163,6 +163,13 @@
     (if (file-exists-p fname)
 	(shell-command (concat "open -a Terminal.app '" fname "'" nil )))))
 
+(defun dired-open-mac-sublime-text ()
+  (interactive)
+  (let ((fname (dired-get-file-for-visit)))
+    (if (file-exists-p fname)
+	(shell-command (concat "open -a 'Sublime Text 2.app' '" fname "'" nil )))))
+
+
 ;;;;ファイル作成
 (defun dired-create-file (file-name)
   (interactive "F Create file: ")
@@ -184,6 +191,10 @@
 	    ; Terminalでディレクトリまでcdして開けるようにする。
 	    (define-key dired-mode-map "_" 'dired-open-mac-terminal)
 
+	    ; SublimeText2で開く
+	    (define-key dired-mode-map "." 'dired-open-mac-sublime-text)
+
+	    ; ファイル作成
 	    (define-key dired-mode-map "c" 'dired-create-file)
 	    ))
 
