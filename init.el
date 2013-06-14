@@ -232,8 +232,11 @@
 
 (global-set-key "\M-y" 'helm-show-kill-ring)
 (global-set-key "\M-i" 'helm-imenu)
+
 (custom-set-variables
- '(helm-buffer-max-length 40))
+ '(helm-buffer-max-length 160)
+ '(helm-idle-delay 0.05)
+ '(helm-input-idle-delay 0.05))
 
 ;; helm-git
 (add-to-list 'load-path "~/.emacs.d/helm-git")
