@@ -234,7 +234,7 @@
 (global-set-key "\M-i" 'helm-imenu)
 
 (custom-set-variables
- '(helm-buffer-max-length 160)
+ '(helm-buffer-max-length 120)
  '(helm-idle-delay 0.05)
  '(helm-input-idle-delay 0.05))
 
