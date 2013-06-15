@@ -73,3 +73,6 @@
 [submodule "eproject"]
 	path = eproject
 	url = git://repo.or.cz/eproject.git
+[submodule "yard-mode.el"]
+	path = yard-mode.el
+	url = https://github.com/pd/yard-mode.el.git

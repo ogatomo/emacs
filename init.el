@@ -306,6 +306,12 @@ and source-file directory for your debugger." t)
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile.lock$" . ruby-mode))
 
+(add-to-list 'load-path "~/.emacs.d/yard-mode.el")
+(require 'yard-mode)
+
+(add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'ruby-mode-hook 'eldoc-mode)
+
 ;;; ruby on rails -----------------------------------------------
 (require 'findr)
 (add-to-list 'load-path "~/.emacs.d/rinari")
