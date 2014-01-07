@@ -1,9 +1,28 @@
-((auto-save-buffers status "installed" recipe
+((auto-complete status "installed" recipe
+		(:name auto-complete :website "https://github.com/auto-complete/auto-complete" :description "The most intelligent auto-completion extension." :type github :pkgname "auto-complete/auto-complete" :depends
+		       (popup fuzzy)))
+ (auto-complete-etags status "installed" recipe
+		      (:name auto-complete-etags :type emacswiki :description "Auto-complete sources for etags" :depends auto-complete))
+ (auto-save-buffers status "installed" recipe
 		    (:name auto-save-buffers :type http :description "auto-save-buffers" :url "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el"))
  (cl-lib status "installed" recipe
 	 (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
+ (coffee-mode status "installed" recipe
+	      (:name coffee-mode :website "http://ozmm.org/posts/coffee_mode.html" :description "Emacs Major Mode for CoffeeScript" :type github :pkgname "defunkt/coffee-mode" :features coffee-mode :post-init
+		     (progn
+		       (add-to-list 'auto-mode-alist
+				    '("\\.coffee$" . coffee-mode))
+		       (add-to-list 'auto-mode-alist
+				    '("Cakefile" . coffee-mode))
+		       (setq coffee-js-mode 'javascript-mode))))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
+ (dash-at-point status "installed" recipe
+		(:name dash-at-point :description "Search the word at point with Dash. Dash is an API Documentation Browser and Code Snippet Manager. dash-at-point make it easy to search the word at point with Dash." :type github :pkgname "stanaka/dash-at-point"))
+ (direx status "installed" recipe
+	(:name direx :description "Directory Explorer" :website "https://github.com/m2ym/direx-el" :type github :pkgname "m2ym/direx-el" :features "direx"))
+ (fuzzy status "installed" recipe
+	(:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (helm-ls-git status "installed" recipe
@@ -57,6 +76,8 @@
 		      ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
  (php-mode status "installed" recipe
 	   (:name php-mode :description "A PHP mode for GNU Emacs " :type github :pkgname "ejmr/php-mode" :website "https://github.com/ejmr/php-mode"))
+ (popup status "installed" recipe
+	(:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :pkgname "auto-complete/popup-el"))
  (popwin status "installed" recipe
 	 (:name popwin :description "Popup Window Manager." :website "https://github.com/m2ym/popwin-el" :type github :pkgname "m2ym/popwin-el"))
  (rcodetools status "installed" recipe
@@ -83,5 +104,7 @@
 		   (:name ruby-mode-github :type git :website "https://github.com/jwiegley/ruby-mode" :description "Git mirror of ruby-mode from the Ruby SVN sources" :url "https://github.com/jwiegley/ruby-mode.git"))
  (undo-tree status "installed" recipe
 	    (:name undo-tree :description "Treat undo history as a tree" :website "http://www.dr-qubit.org/emacs.php" :type git :url "http://www.dr-qubit.org/git/undo-tree.git/"))
+ (yaml-mode status "installed" recipe
+	    (:name yaml-mode :description "Simple major mode to edit YAML file for emacs" :type github :pkgname "yoshiki/yaml-mode"))
  (yard-mode status "installed" recipe
 	    (:name yard-mode :type git :website "https://github.com/pd/yard-mode.el" :description "Rudimentary support for fontifying YARD tags and directives in ruby comments." :url "https://github.com/pd/yard-mode.el.git")))
