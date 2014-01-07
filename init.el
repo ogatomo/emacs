@@ -17,8 +17,12 @@
 (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims")
                       (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
-(add-to-list 'load-path "~/.emacs.d/el-get")
+;;; helm
+(add-to-list 'load-path "~/.emacs.d/helm")
+(require 'helm)
 
+;;; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get")
 (setq el-get-dir "~/.emacs.d/el-get-packages")
 (setq el-get-recipe-path (list "~/.emacs.d/el-get-user-recipes"
                                "~/.emacs.d/el-get/recipes/emacswiki"
@@ -27,3 +31,4 @@
 
 (require 'el-get)
 (el-get 'sync)
+
