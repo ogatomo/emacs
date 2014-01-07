@@ -1156,16 +1156,28 @@ See `undo-tree-mode' for more information on Undo-Tree mode.
 
 ;;;***
 
-;;;### (autoloads nil nil ("cl-lib/cl-lib-autoloads.el" "cl-lib/cl-lib-pkg.el"
-;;;;;;  "cl-lib/cl-lib.el" "cucumber/feature-mode-pkg.el" "jaspace/jaspace.el"
-;;;;;;  "php-mode/php-mode-test.el" "rcodetools/anything-rcodetools.el"
-;;;;;;  "rcodetools/icicles-rcodetools.el" "rcodetools/rcodetools.el"
-;;;;;;  "rhtml-mode/rhtml-erb.el" "rhtml-mode/rhtml-fonts.el" "rhtml-mode/rhtml-navigation.el"
-;;;;;;  "rhtml-mode/rhtml-ruby-hook.el" "rhtml-mode/rhtml-sgml-hacks.el"
-;;;;;;  "rinari/util/jump/findr.el" "rinari/util/ruby-compilation-rspec.el"
-;;;;;;  "ruby-mode-github/inf-ruby.el" "ruby-mode-github/rdoc-mode.el"
-;;;;;;  "ruby-mode-github/ruby-additional.el" "ruby-mode-github/ruby-electric.el"
-;;;;;;  "ruby-mode-github/ruby-style.el") (21195 64846 361629))
+;;;### (autoloads (yard-mode) "yard-mode/yard-mode" "yard-mode/yard-mode.el"
+;;;;;;  (21196 1116))
+;;; Generated autoloads from yard-mode/yard-mode.el
+
+(autoload 'yard-mode "yard-mode/yard-mode" "\
+Font locking and completion for YARD tags and directives
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("auto-save-buffers/auto-save-buffers.el"
+;;;;;;  "cl-lib/cl-lib-autoloads.el" "cl-lib/cl-lib-pkg.el" "cl-lib/cl-lib.el"
+;;;;;;  "cucumber/feature-mode-pkg.el" "jaspace/jaspace.el" "php-mode/php-mode-test.el"
+;;;;;;  "rcodetools/anything-rcodetools.el" "rcodetools/icicles-rcodetools.el"
+;;;;;;  "rcodetools/rcodetools.el" "rhtml-mode/rhtml-erb.el" "rhtml-mode/rhtml-fonts.el"
+;;;;;;  "rhtml-mode/rhtml-navigation.el" "rhtml-mode/rhtml-ruby-hook.el"
+;;;;;;  "rhtml-mode/rhtml-sgml-hacks.el" "rinari/util/jump/findr.el"
+;;;;;;  "rinari/util/ruby-compilation-rspec.el" "ruby-mode-github/inf-ruby.el"
+;;;;;;  "ruby-mode-github/rdoc-mode.el" "ruby-mode-github/ruby-additional.el"
+;;;;;;  "ruby-mode-github/ruby-electric.el" "ruby-mode-github/ruby-style.el")
+;;;;;;  (21196 1116 787390))
 
 ;;;***
 

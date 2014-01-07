@@ -1,4 +1,6 @@
-((cl-lib status "installed" recipe
+((auto-save-buffers status "installed" recipe
+		    (:name auto-save-buffers :type http :description "auto-save-buffers" :url "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el"))
+ (cl-lib status "installed" recipe
 	 (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
@@ -78,4 +80,6 @@
  (ruby-mode-github status "installed" recipe
 		   (:name ruby-mode-github :type git :website "https://github.com/jwiegley/ruby-mode" :description "Git mirror of ruby-mode from the Ruby SVN sources" :url "https://github.com/jwiegley/ruby-mode.git"))
  (undo-tree status "installed" recipe
-	    (:name undo-tree :description "Treat undo history as a tree" :website "http://www.dr-qubit.org/emacs.php" :type git :url "http://www.dr-qubit.org/git/undo-tree.git/")))
+	    (:name undo-tree :description "Treat undo history as a tree" :website "http://www.dr-qubit.org/emacs.php" :type git :url "http://www.dr-qubit.org/git/undo-tree.git/"))
+ (yard-mode status "installed" recipe
+	    (:name yard-mode :type git :website "https://github.com/pd/yard-mode.el" :description "Rudimentary support for fontifying YARD tags and directives in ruby comments." :url "https://github.com/pd/yard-mode.el.git")))
