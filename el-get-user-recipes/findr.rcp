@@ -1,0 +1,5 @@
+(:name findr
+       :type http
+       :description "Breadth-first file-finding facility for (X)Emacs"
+       :url "http://www.emacswiki.org/emacs/download/findr.el")
+

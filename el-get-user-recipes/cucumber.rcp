@@ -1,0 +1,5 @@
+(:name cucumber
+       :type git
+       :website "https://github.com/michaelklishin/cucumber.el"
+       :description "Emacs mode for editing plain text user stories"
+       :url "https://github.com/michaelklishin/cucumber.el.git")

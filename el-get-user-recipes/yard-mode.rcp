@@ -1,0 +1,5 @@
+(:name yard-mode
+       :type git
+       :website "https://github.com/pd/yard-mode.el"
+       :description "Rudimentary support for fontifying YARD tags and directives in ruby comments."
+       :url "https://github.com/pd/yard-mode.el.git")

@@ -1,0 +1,5 @@
+;;; define el-get repository
+(:name auto-save-buffers
+       :type http
+       :description "auto-save-buffers"
+       :url "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el")
