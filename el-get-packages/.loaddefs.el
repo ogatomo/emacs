@@ -91,6 +91,17 @@ A major mode for editing .gitignore files.
 
 ;;;***
 
+;;;### (autoloads (helm-ls-git-ls) "helm-ls-git/helm-ls-git" "helm-ls-git/helm-ls-git.el"
+;;;;;;  (21196 1779))
+;;; Generated autoloads from helm-ls-git/helm-ls-git.el
+
+(autoload 'helm-ls-git-ls "helm-ls-git/helm-ls-git" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (magit-run-gitk magit-run-git-gui-blame magit-run-git-gui
 ;;;;;;  magit-init magit-branch-manager magit-show magit-dired-jump
 ;;;;;;  magit-add-change-log-entry-other-window magit-add-change-log-entry
@@ -1177,7 +1188,7 @@ Font locking and completion for YARD tags and directives
 ;;;;;;  "rinari/util/ruby-compilation-rspec.el" "ruby-mode-github/inf-ruby.el"
 ;;;;;;  "ruby-mode-github/rdoc-mode.el" "ruby-mode-github/ruby-additional.el"
 ;;;;;;  "ruby-mode-github/ruby-electric.el" "ruby-mode-github/ruby-style.el")
-;;;;;;  (21196 1116 787390))
+;;;;;;  (21196 1780 584628))
 
 ;;;***
 
