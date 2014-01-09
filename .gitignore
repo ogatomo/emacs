@@ -1,0 +1,4 @@
+*.elc
+.loaddefs.el
+el-get-packages/
+!.status.el
