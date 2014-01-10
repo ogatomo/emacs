@@ -37,10 +37,13 @@
             ))
 
 ;;; helm
-(global-set-key (kbd "C-c p") 'helm-ls-git-find-files)
+(global-set-key (kbd "C-c p") 'helm-ls-git-ls)
 (global-set-key "\M-p" 'helm-mini)
 (global-set-key "\M-y" 'helm-show-kill-ring)
 (global-set-key "\M-i" 'helm-imenu)
 
 ;;; dash
 (global-set-key "\C-cd" 'dash-at-point)
+
+;; magit
+(global-set-key (kbd "C-c g") 'magit-status)
