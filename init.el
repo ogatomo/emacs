@@ -6,5 +6,6 @@
 (load "init-el-get")
 (load "init-helm")
 
+(require 'quickrun)
 (require 'auto-save-buffers)
 (require 'auto-complete)
