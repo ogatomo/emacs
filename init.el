@@ -6,6 +6,5 @@
 (load "init-el-get")
 (load "init-helm")
 
-(require 'jaspace)
 (require 'auto-save-buffers)
 (require 'auto-complete)

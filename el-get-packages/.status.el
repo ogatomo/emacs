@@ -27,13 +27,6 @@
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
- (jaspace status "installed" recipe
-	  (:name jaspace :type http :description "Make Japanese whitespaces visible" :url "http://homepage3.nifty.com/satomii/software/jaspace.el" :features jaspace :post-init
-		 (progn
-		   (global-font-lock-mode t)
-		   (setq jaspace-alternate-jaspace-string "?")
-		   (setq jaspace-alternate-eol-string "\n")
-		   (setq jaspace-highlight-tabs 94))))
  (magit status "installed" recipe
 	(:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
 	       (cl-lib git-modes)
