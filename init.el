@@ -2,10 +2,13 @@
 
 (load "init-env")
 (load "init-key-bind")
+(load "init-auto-mode")
 (load "init-gui")
 (load "init-el-get")
 (load "init-helm")
 
 (require 'quickrun)
 (require 'auto-save-buffers)
-(require 'auto-complete)
+(require 'dash-at-point)
+
+(load "init-auto-complete")
