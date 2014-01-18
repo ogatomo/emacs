@@ -27,6 +27,13 @@
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
+ (jaspace status "installed" recipe
+	  (:name jaspace :type http :description "Make Japanese whitespaces visible" :url "http://homepage3.nifty.com/satomii/software/jaspace.el" :features jaspace :post-init
+		 (progn
+		   (global-font-lock-mode t)
+		   (setq jaspace-alternate-jaspace-string "?")
+		   (setq jaspace-alternate-eol-string "\n")
+		   (setq jaspace-highlight-tabs 94))))
  (jshint-mode status "installed" recipe
 	      (:name jshint-mode :website "https://github.com/daleharvey/jshint-mode" :description "Integrate JSHint into Emacs via a node.js server. JSHint (http://www.jshint.com/) is a static code analysis tool for JavaScript." :type github :pkgname "daleharvey/jshint-mode"))
  (magit status "installed" recipe
@@ -94,9 +101,8 @@
 		(("bundle")
 		 ("rake" "doc:install_info"))
 		:info "doc" :features rinari))
- (ruby-electric status "installed" recipe
-		(:name ruby-electric :description "Electric commands editing for ruby files" :type github :pkgname "qoobaa/ruby-electric" :post-init
-		       (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
+ (ruby-end status "installed" recipe
+	   (:name ruby-end :description "Emacs minor mode for automatic insertion of end blocks for Ruby" :type http :url "https://github.com/rejeep/ruby-end/raw/master/ruby-end.el" :features ruby-end))
  (ruby-mode-github status "installed" recipe
 		   (:name ruby-mode-github :type git :website "https://github.com/jwiegley/ruby-mode" :description "Git mirror of ruby-mode from the Ruby SVN sources" :url "https://github.com/jwiegley/ruby-mode.git"))
  (undo-tree status "installed" recipe
