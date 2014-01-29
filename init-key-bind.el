@@ -47,3 +47,6 @@
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)
+
+;; direx起動
+(global-set-key (kbd "C-x j") 'direx:jump-to-directory-other-window)
