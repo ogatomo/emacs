@@ -1,0 +1,6 @@
+(:name geben
+       :type git
+       :website "https://github.com/mcorde/geben-on-emacs"
+       :description "GEBEN is a software package that interfaces Emacs to DBGp protocol with which you can debug running scripts interactive."
+       :url "https://github.com/mcorde/geben-on-emacs.git")
+

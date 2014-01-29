@@ -23,6 +23,8 @@
 	(:name direx :description "Directory Explorer" :website "https://github.com/m2ym/direx-el" :type github :pkgname "m2ym/direx-el" :features "direx"))
  (fuzzy status "installed" recipe
 	(:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
+ (geben status "installed" recipe
+	(:name geben :type git :website "https://github.com/mcorde/geben-on-emacs" :description "GEBEN is a software package that interfaces Emacs to DBGp protocol with which you can debug running scripts interactive." :url "https://github.com/mcorde/geben-on-emacs.git"))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (helm-ls-git status "installed" recipe
