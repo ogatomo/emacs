@@ -10,5 +10,7 @@
 (require 'quickrun)
 (require 'auto-save-buffers)
 (require 'dash-at-point)
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 (load "init-auto-complete")
