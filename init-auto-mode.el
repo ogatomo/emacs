@@ -13,6 +13,10 @@
 
 ;; web-mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl.php$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.xml$" . web-mode))
 
 ;; coffee-mode
 (add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
@@ -20,3 +24,8 @@
 ;; markdown-mode
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+
+;; php-mode
+(add-to-list 'auto-mode-alist '("\\.module$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.install$" . php-mode))
