@@ -13,5 +13,6 @@
 (require 'undo-tree)
 (require 'jaspace)
 (global-undo-tree-mode)
+(global-git-gutter-mode)
 
 (load "init-auto-complete")

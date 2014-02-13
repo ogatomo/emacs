@@ -29,6 +29,8 @@
 	(:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (geben status "installed" recipe
 	(:name geben :type git :website "https://github.com/mcorde/geben-on-emacs" :description "GEBEN is a software package that interfaces Emacs to DBGp protocol with which you can debug running scripts interactive." :url "https://github.com/mcorde/geben-on-emacs.git"))
+ (git-gutter status "installed" recipe
+	     (:name git-gutter :description "Emacs port of GitGutter Sublime Text 2 Plugin" :website "https://github.com/syohex/emacs-git-gutter" :type github :pkgname "syohex/emacs-git-gutter"))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (helm-ls-git status "installed" recipe
