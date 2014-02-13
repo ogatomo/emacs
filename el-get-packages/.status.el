@@ -1,4 +1,6 @@
-((auto-complete status "installed" recipe
+((ag status "installed" recipe
+     (:name ag :description "A simple ag frontend, loosely based on ack-and-half.el." :type github :pkgname "Wilfred/ag.el"))
+ (auto-complete status "installed" recipe
 		(:name auto-complete :website "https://github.com/auto-complete/auto-complete" :description "The most intelligent auto-completion extension." :type github :pkgname "auto-complete/auto-complete" :depends
 		       (popup fuzzy)))
  (auto-complete-etags status "installed" recipe
