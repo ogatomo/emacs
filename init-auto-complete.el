@@ -21,7 +21,7 @@
 
 (ac-set-trigger-key "TAB")
 ;;; (setq ac-auto-start nil)
-(setq ac-auto-start 2)
+(setq ac-auto-start 1)
 (setq ac-candidate-max 40)
 
 ;(setq ac-modes (append ac-modes '(objc-mode)))

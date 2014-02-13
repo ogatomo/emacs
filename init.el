@@ -11,6 +11,7 @@
 (require 'auto-save-buffers)
 (require 'dash-at-point)
 (require 'undo-tree)
+(require 'jaspace)
 (global-undo-tree-mode)
 
 (load "init-auto-complete")
