@@ -1,5 +1,8 @@
 (add-to-list 'load-path "~/.emacs.d")
 
+(unless (require 'cl-lib nil t)
+  (require 'cl))
+
 (load "init-env")
 (load "init-key-bind")
 (load "init-auto-mode")
