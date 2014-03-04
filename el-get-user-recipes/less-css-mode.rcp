@@ -1,0 +1,6 @@
+;;; define el-get repository
+(:name less-css-mode
+       :type http
+       :description "less-css-mode"
+       :url "https://raw.github.com/purcell/less-css-mode/master/less-css-mode.el")
+
