@@ -11,7 +11,7 @@
 (global-set-key "\M-g" 'goto-line)
 
 ;;; init.el再読込用
-(global-set-key [f12] 'eval-buffer)
+;(global-set-key [f12] 'eval-buffer)
 
 (add-hook 'dired-mode-hook
           (lambda ()
@@ -50,3 +50,10 @@
 
 ;; direx起動
 (global-set-key (kbd "C-x j") 'direx:jump-to-directory-other-window)
+
+;; ハイライト on/off
+(global-set-key (kbd "<f6>") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-<f6>") 'highlight-symbol-at-point)
+
+;; quickrun実行
+(global-set-key (kbd "<f5>") 'quickrun)

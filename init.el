@@ -15,6 +15,8 @@
 (require 'dash-at-point)
 (require 'undo-tree)
 (require 'jaspace)
+(require 'auto-highlight-symbol-config)
+
 (global-undo-tree-mode)
 (global-git-gutter-mode)
 
