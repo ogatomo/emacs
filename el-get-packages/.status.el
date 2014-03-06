@@ -65,6 +65,10 @@
 	       :build/berkeley-unix
 	       (("touch" "`find . -name Makefile`")
 		("gmake"))))
+ (markdown-mode status "installed" recipe
+		(:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :website "http://jblevins.org/projects/markdown-mode/" :type git :url "git://jblevins.org/git/markdown-mode.git" :before
+		       (add-to-list 'auto-mode-alist
+				    '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
  (multiple-cursors status "installed" recipe
 		   (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el" :features multiple-cursors))
  (package status "installed" recipe
