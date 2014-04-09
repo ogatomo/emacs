@@ -104,6 +104,19 @@
 	(:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :pkgname "auto-complete/popup-el"))
  (popwin status "installed" recipe
 	 (:name popwin :description "Popup Window Manager." :website "https://github.com/m2ym/popwin-el" :type github :pkgname "m2ym/popwin-el"))
+ (python-mode status "installed" recipe
+	      (:name python-mode :description "Major mode for editing Python programs" :type bzr :url "lp:python-mode" :load-path
+		     ("." "test")
+		     :compile nil :prepare
+		     (progn
+		       (autoload 'python-mode "python-mode" "Python editing mode." t)
+		       (autoload 'doctest-mode "doctest-mode" "Doctest unittest editing mode." t)
+		       (setq py-install-directory
+			     (el-get-package-directory "python-mode"))
+		       (add-to-list 'auto-mode-alist
+				    '("\\.py$" . python-mode))
+		       (add-to-list 'interpreter-mode-alist
+				    '("python" . python-mode)))))
  (quickrun status "installed" recipe
 	   (:name quickrun :description "Run commands quickly" :website "https://github.com/syohex/emacs-quickrun" :type github :pkgname "syohex/emacs-quickrun" :features "quickrun"))
  (rcodetools status "installed" recipe
