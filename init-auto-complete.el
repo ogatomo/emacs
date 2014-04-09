@@ -12,3 +12,5 @@
 (global-set-key "\M-/" 'ac-start)
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+
+(setq ac-disable-faces nil)
