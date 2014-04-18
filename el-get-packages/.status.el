@@ -127,15 +127,6 @@
 		      (autoload 'rhtml-mode "rhtml-mode" nil t)
 		      (add-to-list 'auto-mode-alist
 				   '("\\.html.erb$" . rhtml-mode)))))
- (rinari status "installed" recipe
-	 (:name rinari :description "Rinari Is Not A Rails IDE" :type github :pkgname "eschulte/rinari" :load-path
-		("." "util" "util/jump")
-		:compile
-		("\\.el$" "util")
-		:build
-		(("bundle")
-		 ("rake" "doc:install_info"))
-		:info "doc" :features rinari))
  (ruby-end status "installed" recipe
 	   (:name ruby-end :description "Emacs minor mode for automatic insertion of end blocks for Ruby" :type http :url "https://github.com/rejeep/ruby-end/raw/master/ruby-end.el" :features ruby-end))
  (ruby-mode-github status "installed" recipe
