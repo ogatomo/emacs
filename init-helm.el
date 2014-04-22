@@ -22,3 +22,6 @@
 ;; popwin
 (setq display-buffer-function 'popwin:display-buffer)
 (push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
+
+;; find-fileはデフォルトのものを使う
+(add-to-list 'helm-completing-read-handlers-alist '(find-file . nil))
