@@ -21,3 +21,5 @@
 (global-git-gutter-mode)
 
 (load "init-auto-complete")
+(put 'set-goal-column 'disabled nil)
+(put 'upcase-region 'disabled nil)
