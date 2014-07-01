@@ -11,7 +11,7 @@
 (load "init-helm")
 
 (require 'quickrun)
-(require 'auto-save-buffers)
+;(require 'auto-save-buffers)
 (require 'dash-at-point)
 (require 'undo-tree)
 (require 'auto-highlight-symbol-config)
