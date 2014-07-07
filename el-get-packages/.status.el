@@ -63,6 +63,8 @@
 			   :build/berkeley-unix
 			   (("touch" "`find . -name Makefile`")
 				("gmake"))))
+ (mark-multiple status "installed" recipe
+				(:name mark-multiple :description "mark several regions at once" :website "http://emacsrocks.com/e08.html" :type github :pkgname "magnars/mark-multiple.el" :features "mark-more-like-this"))
  (markdown-mode status "installed" recipe
 				(:name markdown-mode :description "Major mode to edit Markdown files in Emacs" :website "http://jblevins.org/projects/markdown-mode/" :type git :url "git://jblevins.org/git/markdown-mode.git" :prepare
 					   (add-to-list 'auto-mode-alist
