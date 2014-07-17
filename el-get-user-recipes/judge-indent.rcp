@@ -1,0 +1,5 @@
+(:name judge-indent
+       :type http
+       :description "auto aply indent rule"
+       :url "https://raw.github.com/yascentur/judge-indent-el/master/judge-indent.el")
+
