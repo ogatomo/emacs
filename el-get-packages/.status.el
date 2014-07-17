@@ -48,8 +48,6 @@
 		   (:name highlight-symbol :description "Quickly highlight a symbol throughout the buffer and cycle through its locations." :type http :url "http://nschum.de/src/emacs/highlight-symbol/highlight-symbol.el" :features "highlight-symbol"))
  (jshint-mode status "installed" recipe
 	      (:name jshint-mode :website "https://github.com/daleharvey/jshint-mode" :description "Integrate JSHint into Emacs via a node.js server. JSHint (http://www.jshint.com/) is a static code analysis tool for JavaScript." :type github :pkgname "daleharvey/jshint-mode"))
- (judge-indent status "installed" recipe
-	       (:name judge-indent :type http :description "auto aply indent rule" :url "https://raw.github.com/yascentur/judge-indent-el/master/judge-indent.el"))
  (less-css-mode status "installed" recipe
 		(:name less-css-mode :type http :description "less-css-mode" :url "https://raw.github.com/purcell/less-css-mode/master/less-css-mode.el"))
  (magit status "installed" recipe

@@ -10,6 +10,7 @@
 (load "init-el-get")
 (load "init-helm")
 (load "init-region-tools")
+(load "init-php-mode")
 
 (require 'quickrun)
 ;(require 'auto-save-buffers)
