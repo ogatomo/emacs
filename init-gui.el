@@ -120,7 +120,7 @@
   (interactive)
   (let ((fname (dired-get-file-for-visit)))
     (if (file-exists-p fname)
-	(shell-command (concat "open -a 'Sublime Text 2.app' '" fname "'" nil )))))
+	(shell-command (concat "open -a 'Sublime Text.app' '" fname "'" nil )))))
 
 ;;;;ファイル作成
 (defun dired-create-file (file-name)
