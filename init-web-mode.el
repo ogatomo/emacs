@@ -9,6 +9,7 @@
 ;;; インデント数
 (defun web-mode-hook ()
   "Hooks for Web mode."
+  (setq indent-tabs-mode nil)
   (setq web-mode-html-offset   2)
   (setq web-mode-css-offset    2)
   (setq web-mode-script-offset 2)
