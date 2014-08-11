@@ -11,6 +11,7 @@
 (load "init-helm")
 (load "init-region-tools")
 (load "init-php-mode")
+(load "init-web-mode")
 
 (require 'quickrun)
 ;(require 'auto-save-buffers)
