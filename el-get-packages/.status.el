@@ -134,6 +134,8 @@
 		  (progn
 		    (autoload 'smartrep-restore-original-position "smartrep" nil t)
 		    (autoload 'smartrep-map-internal "smartrep" nil t))))
+ (tabbar status "installed" recipe
+	 (:name tabbar :description "Display a tab bar in the header line." :type github :pkgname "dholm/tabbar" :lazy t))
  (undo-tree status "installed" recipe
 	    (:name undo-tree :description "Treat undo history as a tree" :website "http://www.dr-qubit.org/emacs.php" :type git :url "http://www.dr-qubit.org/git/undo-tree.git/"))
  (web-mode status "installed" recipe

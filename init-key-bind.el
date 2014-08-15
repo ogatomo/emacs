@@ -57,3 +57,7 @@
 
 ;; quickrun実行
 (global-set-key (kbd "<f5>") 'quickrun)
+
+;; tabbar
+(global-set-key (kbd "C-{") 'tabbar-backward-tab)
+(global-set-key (kbd "C-}") 'tabbar-forward-tab)
