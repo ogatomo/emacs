@@ -61,3 +61,5 @@
 ;; tabbar
 (global-set-key (kbd "C-{") 'tabbar-backward-tab)
 (global-set-key (kbd "C-}") 'tabbar-forward-tab)
+(global-set-key (kbd "M-<down>") 'tabbar-backward-group)
+(global-set-key (kbd "M-<up>") 'tabbar-forward-group)
