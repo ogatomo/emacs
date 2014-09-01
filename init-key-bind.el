@@ -10,6 +10,9 @@
 ;;M-g で指定行へジャンプ
 (global-set-key "\M-g" 'goto-line)
 
+;;バッファ削除
+(global-set-key (kbd "s-w") 'kill-buffer)
+
 ;;; init.el再読込用
 ;(global-set-key [f12] 'eval-buffer)
 
@@ -59,7 +62,7 @@
 (global-set-key (kbd "<f5>") 'quickrun)
 
 ;; tabbar
-(global-set-key (kbd "C-{") 'tabbar-backward-tab)
-(global-set-key (kbd "C-}") 'tabbar-forward-tab)
+(global-set-key (kbd "s-{") 'tabbar-backward-tab)
+(global-set-key (kbd "s-}") 'tabbar-forward-tab)
 (global-set-key (kbd "M-<down>") 'tabbar-backward-group)
 (global-set-key (kbd "M-<up>") 'tabbar-forward-group)
