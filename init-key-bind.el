@@ -66,3 +66,6 @@
 (global-set-key (kbd "s-}") 'tabbar-forward-tab)
 (global-set-key (kbd "M-<down>") 'tabbar-backward-group)
 (global-set-key (kbd "M-<up>") 'tabbar-forward-group)
+
+;; 正規表現置換
+(global-set-key (kbd "M-%") 'vr/query-replace)
