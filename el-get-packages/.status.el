@@ -42,6 +42,9 @@
 	     (:name git-gutter :description "Emacs port of GitGutter Sublime Text 2 Plugin" :website "https://github.com/syohex/emacs-git-gutter" :type github :pkgname "syohex/emacs-git-gutter"))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
+ (guide-key status "installed" recipe
+	    (:name guide-key :description "Guide the following key bindings automatically and dynamically." :type github :pkgname "kbkbkbkb1/guide-key" :depends
+		   (popwin)))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
  (highlight-symbol status "installed" recipe

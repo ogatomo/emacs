@@ -13,6 +13,7 @@
 (load "init-php-mode")
 (load "init-tabbar")
 (load "init-web-mode")
+(load "init-guide-key")
 
 (require 'quickrun)
 ;(require 'auto-save-buffers)
