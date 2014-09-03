@@ -48,7 +48,7 @@
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
  (highlight-symbol status "installed" recipe
-		   (:name highlight-symbol :description "Quickly highlight a symbol throughout the buffer and cycle through its locations." :type http :url "http://nschum.de/src/emacs/highlight-symbol/highlight-symbol.el" :features "highlight-symbol"))
+		   (:name highlight-symbol :description "Quickly highlight a symbol throughout the buffer and cycle through its locations." :type github :pkgname "nschum/highlight-symbol.el"))
  (jshint-mode status "installed" recipe
 	      (:name jshint-mode :website "https://github.com/daleharvey/jshint-mode" :description "Integrate JSHint into Emacs via a node.js server. JSHint (http://www.jshint.com/) is a static code analysis tool for JavaScript." :type github :pkgname "daleharvey/jshint-mode"))
  (less-css-mode status "installed" recipe
@@ -65,7 +65,9 @@
 		    "docs")))
 	       :build/berkeley-unix
 	       (("touch" "`find . -name Makefile`")
-		("gmake"))))
+		("gmake"))
+	       :prepare
+	       (require 'magit-autoloads)))
  (mark-multiple status "installed" recipe
 		(:name mark-multiple :description "mark several regions at once" :website "http://emacsrocks.com/e08.html" :type github :pkgname "magnars/mark-multiple.el" :features "mark-more-like-this"))
  (markdown-mode status "installed" recipe
