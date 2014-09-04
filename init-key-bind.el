@@ -46,7 +46,7 @@
 (global-set-key "\M-i" 'helm-imenu)
 
 ;;; dash
-(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-cd" 'helm-dash-at-point)
 
 ;; magit
 (global-set-key (kbd "C-c g") 'magit-status)

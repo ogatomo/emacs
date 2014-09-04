@@ -14,8 +14,6 @@
 		      (:name auto-complete-etags :type emacswiki :description "Auto-complete sources for etags" :depends auto-complete))
  (auto-highlight-symbol status "installed" recipe
 			(:name auto-highlight-symbol :type github :pkgname "emacsmirror/auto-highlight-symbol" :description "Automatic highlighting current symbol minor mode" :website "https://github.com/emacsmirror/auto-highlight-symbol/"))
- (auto-save-buffers status "installed" recipe
-		    (:name auto-save-buffers :type http :description "auto-save-buffers" :url "http://homepage3.nifty.com/oatu/emacs/archives/auto-save-buffers.el"))
  (cl-lib status "installed" recipe
 	 (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (coffee-mode status "installed" recipe
@@ -28,8 +26,6 @@
 		       (setq coffee-js-mode 'javascript-mode))))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
- (dash-at-point status "installed" recipe
-		(:name dash-at-point :description "Search the word at point with Dash. Dash is an API Documentation Browser and Code Snippet Manager. dash-at-point make it easy to search the word at point with Dash." :type github :pkgname "stanaka/dash-at-point"))
  (direx status "installed" recipe
 	(:name direx :description "Directory Explorer" :type github :pkgname "m2ym/direx-el"))
  (expand-region status "installed" recipe
