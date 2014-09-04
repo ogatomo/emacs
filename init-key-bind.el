@@ -56,7 +56,7 @@
 
 ;; ハイライト on/off
 (global-set-key (kbd "<f6>") 'highlight-symbol-at-point)
-(global-set-key (kbd "M-<f6>") 'highlight-symbol-at-point)
+(global-set-key (kbd "M-<f6>") 'highlight-symbol-remove-all)
 
 ;; quickrun実行
 (global-set-key (kbd "<f5>") 'quickrun)
