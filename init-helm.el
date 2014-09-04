@@ -1,5 +1,4 @@
 ;;; init-helm.el
-(add-to-list 'load-path "~/.emacs.d/helm")
 (require 'helm)
 (require 'helm-config)
 (require 'helm-ring)

@@ -1,0 +1,5 @@
+(:name sqlite
+       :type git
+       :website "https://github.com/mhayashi1120/Emacs-esqlite"
+       :description "Manipulate sqlite file from Emacs"
+       :url "https://github.com/mhayashi1120/Emacs-esqlite.git")

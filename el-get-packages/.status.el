@@ -45,6 +45,12 @@
  (guide-key status "installed" recipe
 	    (:name guide-key :description "Guide the following key bindings automatically and dynamically." :type github :pkgname "kbkbkbkb1/guide-key" :depends
 		   (popwin)))
+ (helm status "installed" recipe
+       (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :compile nil))
+ (helm-dash status "installed" recipe
+	    (:name "helm-dash" :description "Browse Dash docsets inside emacs" :depends
+		   (helm sqlite)
+		   :type github :pkgname "areina/helm-dash"))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
  (highlight-symbol status "installed" recipe
@@ -139,6 +145,8 @@
 		  (progn
 		    (autoload 'smartrep-restore-original-position "smartrep" nil t)
 		    (autoload 'smartrep-map-internal "smartrep" nil t))))
+ (sqlite status "installed" recipe
+	 (:name sqlite :type git :website "https://github.com/mhayashi1120/Emacs-esqlite" :description "Manipulate sqlite file from Emacs" :url "https://github.com/mhayashi1120/Emacs-esqlite.git"))
  (tabbar status "installed" recipe
 	 (:name tabbar :description "Display a tab bar in the header line." :type github :pkgname "dholm/tabbar" :lazy t))
  (undo-tree status "installed" recipe
