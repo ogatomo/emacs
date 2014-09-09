@@ -1,0 +1,7 @@
+(:name dired-toggle
+       :type git
+       :website "https://github.com/fasheng/dired-toggle"
+       :description "provide a simple way to toggle dired buffer for current directory"
+       :url "https://github.com/fasheng/dired-toggle.git")
+
+

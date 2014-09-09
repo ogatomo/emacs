@@ -69,3 +69,6 @@
 
 ;; 正規表現置換
 (global-set-key (kbd "M-%") 'vr/query-replace)
+
+;; dired-toggle
+(global-set-key (kbd "C-c C-u") 'dired-toggle)

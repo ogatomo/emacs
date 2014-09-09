@@ -28,6 +28,8 @@
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
  (dired-details status "installed" recipe
 		(:name dired-details :description "Make file details hide-able in dired" :type emacswiki :features dired-details))
+ (dired-toggle status "installed" recipe
+	       (:name dired-toggle :type git :website "https://github.com/fasheng/dired-toggle" :description "provide a simple way to toggle dired buffer for current directory" :url "https://github.com/fasheng/dired-toggle.git"))
  (direx status "installed" recipe
 	(:name direx :description "Directory Explorer" :type github :pkgname "m2ym/direx-el"))
  (expand-region status "installed" recipe
