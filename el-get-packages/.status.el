@@ -136,10 +136,17 @@
 		      (autoload 'rhtml-mode "rhtml-mode" nil t)
 		      (add-to-list 'auto-mode-alist
 				   '("\\.html.erb$" . rhtml-mode)))))
+ (ruby-block status "installed" recipe
+	     (:name ruby-block :type http :url "https://raw.github.com/emacsmirror/emacswiki.org/master/ruby-block.el" :description "highlight matching block"))
+ (ruby-electric status "installed" recipe
+		(:name ruby-electric :description "Electric commands editing for ruby files" :type github :pkgname "qoobaa/ruby-electric" :post-init
+		       (add-hook 'ruby-mode-hook 'ruby-electric-mode)))
  (ruby-end status "installed" recipe
 	   (:name ruby-end :description "Emacs minor mode for automatic insertion of end blocks for Ruby" :type http :url "https://github.com/rejeep/ruby-end/raw/master/ruby-end.el" :features ruby-end))
  (ruby-mode status "installed" recipe
 	    (:name ruby-mode :builtin "24" :type http :description "Major mode for editing Ruby files." :url "http://bugs.ruby-lang.org/projects/ruby-trunk/repository/raw/misc/ruby-mode.el"))
+ (ruby-refactor status "installed" recipe
+		(:name ruby-refactor :description "Ruby refactor is inspired by the Vim plugin vim-refactoring-ruby" :type github :pkgname "ajvargo/ruby-refactor"))
  (smartrep status "installed" recipe
 	   (:name smartrep :description "Support sequential operation which omitted prefix keys." :website "http://sheephead.homelinux.org/2011/12/19/6930/" :type github :pkgname "myuhe/smartrep.el" :prepare
 		  (progn
