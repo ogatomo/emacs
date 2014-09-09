@@ -26,8 +26,8 @@
 		       (setq coffee-js-mode 'javascript-mode))))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
- (dired-details status "installed" recipe
-		(:name dired-details :description "Make file details hide-able in dired" :type emacswiki :features dired-details))
+ (dired-details-emacswiki status "installed" recipe
+			  (:name dired-details-emacswiki :type http :description "provide a simple way to toggle dired buffer for current directory" :url "http://www.emacswiki.org/emacs/download/dired-details.el"))
  (dired-toggle status "installed" recipe
 	       (:name dired-toggle :type git :website "https://github.com/fasheng/dired-toggle" :description "provide a simple way to toggle dired buffer for current directory" :url "https://github.com/fasheng/dired-toggle.git"))
  (direx status "installed" recipe
@@ -43,7 +43,7 @@
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (guide-key status "installed" recipe
-	    (:name guide-key :description "Guide the following key bindings automatically and dynamically." :type github :pkgname "kbkbkbkb1/guide-key" :depends
+	    (:name guide-key :description "Guide the following key bindings automatically and dynamically." :type github :pkgname "kai2nenobu/guide-key" :depends
 		   (popwin)))
  (helm status "installed" recipe
        (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :compile nil))
