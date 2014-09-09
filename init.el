@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (unless (require 'cl-lib nil t)
   (require 'cl))
@@ -15,6 +16,7 @@
 (load "init-tabbar")
 (load "init-web-mode")
 (load "init-guide-key")
+(load "init-dired")
 
 (require 'quickrun)
 (require 'undo-tree)

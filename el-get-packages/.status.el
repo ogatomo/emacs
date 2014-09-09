@@ -26,6 +26,8 @@
 		       (setq coffee-js-mode 'javascript-mode))))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
+ (dired-details status "installed" recipe
+		(:name dired-details :description "Make file details hide-able in dired" :type emacswiki :features dired-details))
  (direx status "installed" recipe
 	(:name direx :description "Directory Explorer" :type github :pkgname "m2ym/direx-el"))
  (expand-region status "installed" recipe
