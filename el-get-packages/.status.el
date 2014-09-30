@@ -47,6 +47,9 @@
 		   (popwin)))
  (helm status "installed" recipe
        (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :compile nil))
+ (helm-ag status "installed" recipe
+	  (:name helm-ag :description "The silver search with helm interface." :type github :pkgname "syohex/emacs-helm-ag" :depends
+		 (helm)))
  (helm-dash status "installed" recipe
 	    (:name "helm-dash" :description "Browse Dash docsets inside emacs" :depends
 		   (helm sqlite)
