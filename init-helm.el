@@ -19,8 +19,8 @@
 (define-key helm-c-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
 
 ;; popwin
-(setq display-buffer-function 'popwin:display-buffer)
-(push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
+;(setq display-buffer-function 'popwin:display-buffer)
+;(push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
 
 ;; find-fileはデフォルトのものを使う
 (add-to-list 'helm-completing-read-handlers-alist '(find-file . nil))

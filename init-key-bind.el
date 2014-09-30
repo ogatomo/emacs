@@ -40,10 +40,11 @@
             ))
 
 ;;; helm
+(global-set-key (kbd "M-p") 'helm-mini)
+(global-set-key (kbd "M-y") 'helm-do-ag)
+(global-set-key (kbd "M-i") 'helm-imenu)
 (global-set-key (kbd "C-c p") 'helm-ls-git-ls)
-(global-set-key "\M-p" 'helm-mini)
-(global-set-key "\M-y" 'helm-show-kill-ring)
-(global-set-key "\M-i" 'helm-imenu)
+(global-set-key (kbd "C-c y") 'helm-show-kill-ring)
 
 ;;; dash
 (global-set-key "\C-cd" 'helm-dash-at-point)
