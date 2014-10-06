@@ -17,6 +17,7 @@
 (load "init-web-mode")
 (load "init-guide-key")
 (load "init-dired")
+(load "init-yasnippets")
 
 (require 'quickrun)
 (require 'undo-tree)
