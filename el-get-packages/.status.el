@@ -172,9 +172,6 @@
  (yasnippet status "installed" recipe
 	    (:name yasnippet :website "https://github.com/capitaomorte/yasnippet.git" :description "YASnippet is a template system for Emacs." :type github :pkgname "capitaomorte/yasnippet" :compile "yasnippet.el" :submodule nil :build
 		   (("git" "submodule" "update" "--init" "--" "snippets"))))
- (yasnippet-snippets status "installed" recipe
-		     (:name yasnippet-snippets :description "A collection of yasnippet snippets for many languages" :type github :pkgname "AndreaCrotti/yasnippet-snippets" :depends
-			    (yasnippet)))
  (yasnippets status "installed" recipe
 	     (:name yasnippets :description "Comprehensive collection of yasnippets" :type github :pkgname "rejeep/yasnippets" :depends
 		    (yasnippet))))
