@@ -98,6 +98,8 @@
       (setenv "LC_TIME" "ja_JP.UTF-8")
       (setenv "LC_ALL" "")
 
+      
+      (load-theme 'deeper-blue)
 ))
 
 ;;; ツールバーを非表示
