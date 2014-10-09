@@ -1,0 +1,5 @@
+(:name ace-isearch
+       :type git
+       :website "https://github.com/tam17aki/ace-isearch"
+       :description "ace-isearch.el provides a minor mode which combines isearch and ace-jump-mode."
+       :url "https://github.com/tam17aki/ace-isearch.git")

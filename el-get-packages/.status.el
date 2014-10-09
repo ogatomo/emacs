@@ -1,4 +1,8 @@
-((ag status "installed" recipe
+((ace-isearch status "installed" recipe
+	      (:name ace-isearch :type git :website "https://github.com/tam17aki/ace-isearch" :description "ace-isearch.el provides a minor mode which combines isearch and ace-jump-mode." :url "https://github.com/tam17aki/ace-isearch.git"))
+ (ace-jump-mode status "installed" recipe
+		(:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs." :type github :pkgname "winterTTr/ace-jump-mode"))
+ (ag status "installed" recipe
      (:name ag :description "A simple ag frontend, loosely based on ack-and-half.el." :type github :pkgname "Wilfred/ag.el"))
  (anzu status "installed" recipe
        (:name anzu :website "https://github.com/syohex/emacs-anzu" :description "A minor mode which displays current match and total matches." :type "github" :branch "master" :pkgname "syohex/emacs-anzu"))
@@ -26,6 +30,8 @@
 		       (setq coffee-js-mode 'javascript-mode))))
  (cucumber status "installed" recipe
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
+ (dash status "installed" recipe
+       (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (dired-details-emacswiki status "installed" recipe
 			  (:name dired-details-emacswiki :type http :description "provide a simple way to toggle dired buffer for current directory" :url "http://www.emacswiki.org/emacs/download/dired-details.el"))
  (dired-toggle status "installed" recipe
@@ -56,6 +62,9 @@
 		   :type github :pkgname "areina/helm-dash"))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
+ (helm-swoop status "installed" recipe
+	     (:name helm-swoop :type github :description "Efficiently hopping squeezed lines powered by Emacs helm interface" :pkgname "ShingoFukuyama/helm-swoop" :depends
+		    (helm)))
  (highlight-symbol status "installed" recipe
 		   (:name highlight-symbol :description "Quickly highlight a symbol throughout the buffer and cycle through its locations." :type github :pkgname "nschum/highlight-symbol.el"))
  (jshint-mode status "installed" recipe
@@ -150,6 +159,8 @@
 	    (:name ruby-mode :builtin "24" :type http :description "Major mode for editing Ruby files." :url "http://bugs.ruby-lang.org/projects/ruby-trunk/repository/raw/misc/ruby-mode.el"))
  (ruby-refactor status "installed" recipe
 		(:name ruby-refactor :description "Ruby refactor is inspired by the Vim plugin vim-refactoring-ruby" :type github :pkgname "ajvargo/ruby-refactor"))
+ (s status "installed" recipe
+    (:name s :description "The long lost Emacs string manipulation library." :type github :pkgname "magnars/s.el"))
  (smartrep status "installed" recipe
 	   (:name smartrep :description "Support sequential operation which omitted prefix keys." :website "http://sheephead.homelinux.org/2011/12/19/6930/" :type github :pkgname "myuhe/smartrep.el" :prepare
 		  (progn
