@@ -32,8 +32,6 @@
 	   (:name cucumber :type git :website "https://github.com/michaelklishin/cucumber.el" :description "Emacs mode for editing plain text user stories" :url "https://github.com/michaelklishin/cucumber.el.git"))
  (dash status "installed" recipe
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
- (dired-details-emacswiki status "installed" recipe
-			  (:name dired-details-emacswiki :type http :description "provide a simple way to toggle dired buffer for current directory" :url "http://www.emacswiki.org/emacs/download/dired-details.el"))
  (dired-toggle status "installed" recipe
 	       (:name dired-toggle :type git :website "https://github.com/fasheng/dired-toggle" :description "provide a simple way to toggle dired buffer for current directory" :url "https://github.com/fasheng/dired-toggle.git"))
  (direx status "installed" recipe

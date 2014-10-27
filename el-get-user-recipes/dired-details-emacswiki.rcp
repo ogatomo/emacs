@@ -1,4 +1,0 @@
-(:name dired-details-emacswiki
-       :type http
-       :description "provide a simple way to toggle dired buffer for current directory"
-       :url "http://www.emacswiki.org/emacs/download/dired-details.el")
