@@ -17,7 +17,6 @@
 (load "init-web-mode")
 (load "init-guide-key")
 (load "init-dired")
-(load "init-yasnippets")
 (load "init-search")
 
 (require 'quickrun)

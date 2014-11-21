@@ -58,6 +58,9 @@
 	    (:name "helm-dash" :description "Browse Dash docsets inside emacs" :depends
 		   (helm sqlite)
 		   :type github :pkgname "areina/helm-dash"))
+ (helm-gtags status "installed" recipe
+	     (:name helm-gtags :description "GNU GLOBAL Helm interface." :type github :pkgname "syohex/emacs-helm-gtags" :depends
+		    (helm)))
  (helm-ls-git status "installed" recipe
 	      (:name helm-ls-git :description "Yet another helm to list git file." :type github :pkgname "emacs-helm/helm-ls-git"))
  (helm-swoop status "installed" recipe
@@ -177,10 +180,4 @@
  (yaml-mode status "installed" recipe
 	    (:name yaml-mode :description "Simple major mode to edit YAML file for emacs" :type github :pkgname "yoshiki/yaml-mode"))
  (yard-mode status "installed" recipe
-	    (:name yard-mode :type git :website "https://github.com/pd/yard-mode.el" :description "Rudimentary support for fontifying YARD tags and directives in ruby comments." :url "https://github.com/pd/yard-mode.el.git"))
- (yasnippet status "installed" recipe
-	    (:name yasnippet :website "https://github.com/capitaomorte/yasnippet.git" :description "YASnippet is a template system for Emacs." :type github :pkgname "capitaomorte/yasnippet" :compile "yasnippet.el" :submodule nil :build
-		   (("git" "submodule" "update" "--init" "--" "snippets"))))
- (yasnippets status "installed" recipe
-	     (:name yasnippets :description "Comprehensive collection of yasnippets" :type github :pkgname "rejeep/yasnippets" :depends
-		    (yasnippet))))
+	    (:name yard-mode :type git :website "https://github.com/pd/yard-mode.el" :description "Rudimentary support for fontifying YARD tags and directives in ruby comments." :url "https://github.com/pd/yard-mode.el.git")))

@@ -73,3 +73,8 @@
 
 ;; dired-toggle
 (global-set-key (kbd "C-c C-u") 'dired-toggle)
+
+;; gtags
+(global-set-key (kbd "M-t") 'helm-gtags-find-tag)     ;関数の定義元へ
+(global-set-key (kbd "M-r") 'helm-gtags-find-rtag)    ;関数の参照先へ
+(global-set-key (kbd "M-s") 'helm-gtags-find-symbol)  ;変数の定義元/参照先へ
