@@ -1,4 +1,3 @@
-(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (unless (require 'cl-lib nil t)

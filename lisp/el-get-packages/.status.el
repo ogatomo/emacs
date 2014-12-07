@@ -1,7 +1,9 @@
 ((ace-isearch status "installed" recipe
 	      (:name ace-isearch :type git :website "https://github.com/tam17aki/ace-isearch" :description "ace-isearch.el provides a minor mode which combines isearch and ace-jump-mode." :url "https://github.com/tam17aki/ace-isearch.git"))
  (ace-jump-mode status "installed" recipe
-		(:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs." :type github :pkgname "winterTTr/ace-jump-mode"))
+		(:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs." :type github :pkgname "winterTTr/ace-jump-mode" :prepare
+		       (eval-after-load "ace-jump-mode"
+			 '(ace-jump-mode-enable-mark-sync))))
  (ag status "installed" recipe
      (:name ag :description "A simple ag frontend, loosely based on ack-and-half.el." :type github :pkgname "Wilfred/ag.el"))
  (anzu status "installed" recipe
