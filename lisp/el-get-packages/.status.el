@@ -5,7 +5,8 @@
 		       (eval-after-load "ace-jump-mode"
 			 '(ace-jump-mode-enable-mark-sync))))
  (ag status "installed" recipe
-     (:name ag :description "A simple ag frontend, loosely based on ack-and-half.el." :type github :pkgname "Wilfred/ag.el"))
+     (:name ag :description "A simple ag frontend, loosely based on ack-and-half.el." :type github :pkgname "Wilfred/ag.el" :depends
+	    (dash s)))
  (anzu status "installed" recipe
        (:name anzu :website "https://github.com/syohex/emacs-anzu" :description "A minor mode which displays current match and total matches." :type "github" :branch "master" :pkgname "syohex/emacs-anzu"))
  (auto-complete status "installed" recipe
@@ -48,11 +49,18 @@
 	     (:name git-gutter :description "Emacs port of GitGutter Sublime Text 2 Plugin" :website "https://github.com/syohex/emacs-git-gutter" :type github :pkgname "syohex/emacs-git-gutter"))
  (git-modes status "installed" recipe
 	    (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
+ (google-translate status "installed" recipe
+		   (:name google-translate :description "Emacs interface to Google Translate" :type github :pkgname "atykhonov/google-translate"))
  (guide-key status "installed" recipe
 	    (:name guide-key :description "Guide the following key bindings automatically and dynamically." :type github :pkgname "kai2nenobu/guide-key" :depends
 		   (popwin)))
  (helm status "installed" recipe
-       (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :compile nil))
+       (:name helm :description "Emacs incremental and narrowing framework" :type github :pkgname "emacs-helm/helm" :build
+	      ("make")
+	      :build/darwin
+	      `(("make" ,(format "EMACS_COMMAND=%s" el-get-emacs)))
+	      :build/windows-nt
+	      (with-temp-file "helm-autoload.el" nil)))
  (helm-ag status "installed" recipe
 	  (:name helm-ag :description "The silver search with helm interface." :type github :pkgname "syohex/emacs-helm-ag" :depends
 		 (helm)))
@@ -77,18 +85,12 @@
  (magit status "installed" recipe
 	(:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
 	       (cl-lib git-modes)
-	       :info "." :build
-	       (if
-		   (version<= "24.3" emacs-version)
-		   `(("make" ,(format "EMACS=%s" el-get-emacs)
-		      "all"))
-		 `(("make" ,(format "EMACS=%s" el-get-emacs)
-		    "docs")))
+	       :info "." :compile "magit.*.el\\'" :build
+	       `(("make" "docs"))
 	       :build/berkeley-unix
-	       (("touch" "`find . -name Makefile`")
-		("gmake"))
-	       :prepare
-	       (require 'magit-autoloads)))
+	       (("gmake" "docs"))
+	       :build/windows-nt
+	       (progn nil)))
  (mark-multiple status "installed" recipe
 		(:name mark-multiple :description "mark several regions at once" :website "http://emacsrocks.com/e08.html" :type github :pkgname "magnars/mark-multiple.el" :features "mark-more-like-this"))
  (markdown-mode status "installed" recipe
@@ -98,7 +100,7 @@
  (multiple-cursors status "installed" recipe
 		   (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el"))
  (package status "installed" recipe
-	  (:name package :description "ELPA implementation (\"package.el\") from Emacs 24" :builtin "24" :type http :url "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el" :shallow nil :features package :post-init
+	  (:name package :description "ELPA implementation (\"package.el\") from Emacs 24" :builtin "24" :type http :url "http://repo.or.cz/w/emacs.git/blob_plain/ba08b24186711eaeb3748f3d1f23e2c2d9ed0d09:/lisp/emacs-lisp/package.el" :shallow nil :features package :post-init
 		 (progn
 		   (let
 		       ((old-package-user-dir
@@ -117,7 +119,7 @@
 		      (pa)
 		      (add-to-list 'package-archives pa 'append))
 		    '(("ELPA" . "http://tromey.com/elpa/")
-		      ("melpa" . "http://melpa.milkbox.net/packages/")
+		      ("melpa" . "http://melpa.org/packages/")
 		      ("gnu" . "http://elpa.gnu.org/packages/")
 		      ("marmalade" . "http://marmalade-repo.org/packages/")
 		      ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
