@@ -130,7 +130,7 @@
   (write-region "" nil file-name nil nil nil))
 
 ;;; recentf
-(setq recentf-max-saved-items 1000)
+(setq recentf-max-saved-items nil)
 
 ;;; uniquify
 (require 'uniquify)
