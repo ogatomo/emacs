@@ -14,6 +14,7 @@
 (load "init-php-mode")
 (load "init-tabbar")
 (load "init-web-mode")
+(load "init-mmm-mode")
 (load "init-guide-key")
 (load "init-dired")
 (load "init-search")
@@ -30,4 +31,3 @@
 (put 'set-goal-column 'disabled nil)
 (put 'upcase-region 'disabled nil)
 
-(server-start)

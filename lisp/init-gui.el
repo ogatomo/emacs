@@ -98,8 +98,11 @@
       (setenv "LC_TIME" "ja_JP.UTF-8")
       (setenv "LC_ALL" "")
 
-      
+      ;; switch theme
       (load-theme 'deeper-blue)
+
+      ;; use emacsclient
+      (server-start)
 ))
 
 ;;; ツールバーを非表示
