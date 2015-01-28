@@ -125,6 +125,8 @@
 		      ("gnu" . "http://elpa.gnu.org/packages/")
 		      ("marmalade" . "http://marmalade-repo.org/packages/")
 		      ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
+ (peep-dired status "installed" recipe
+	     (:name peep-dired :type git :website "https://github.com/asok/peep-dired" :description "A convienent way to look up file contents in other window while browsing directory in dired" :url "https://github.com/asok/peep-dired.git"))
  (php-mode status "installed" recipe
 	   (:name php-mode :description "A PHP mode for GNU Emacs " :type github :pkgname "ejmr/php-mode" :website "https://github.com/ejmr/php-mode"))
  (popup status "installed" recipe

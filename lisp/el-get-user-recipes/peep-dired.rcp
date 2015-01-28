@@ -1,0 +1,7 @@
+(:name peep-dired
+       :type git
+       :website "https://github.com/asok/peep-dired"
+       :description "A convienent way to look up file contents in other window while browsing directory in dired"
+       :url "https://github.com/asok/peep-dired.git")
+
+
