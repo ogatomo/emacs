@@ -14,7 +14,6 @@
 (load "init-php-mode")
 (load "init-tabbar")
 (load "init-web-mode")
-(load "init-mmm-mode")
 (load "init-guide-key")
 (load "init-dired")
 (load "init-google-translate")
