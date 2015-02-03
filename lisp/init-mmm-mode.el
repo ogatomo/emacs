@@ -4,8 +4,10 @@
 
 (mmm-add-classes
  '((html-php
-       :submode php-mode
-       :front "<\\?\\(php|=\\)?"
-       :back "\\?>")))
+    :submode php-mode
+    :face mmm-code-submode-face
+    :front "<\\?\\(php|=\\)?"
+    :back "\\?>"))
+ )
 
 (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))

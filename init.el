@@ -17,7 +17,6 @@
 (load "init-mmm-mode")
 (load "init-guide-key")
 (load "init-dired")
-(load "init-search")
 (load "init-google-translate")
 
 (require 'quickrun)
