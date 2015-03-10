@@ -1,0 +1,5 @@
+(:name persp-mode
+       :type git
+       :website "https://github.com/Bad-ptr/persp-mode.el"
+       :description "Perspectives for emacs, based on the perspective-el by Nathan Weizenbaum."
+       :url "https://github.com/Bad-ptr/persp-mode.el.git")
