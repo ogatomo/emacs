@@ -106,8 +106,6 @@
 
       ;; スクロールを滑らかにする
       (setq mac-mouse-wheel-smooth-scroll t)
-
-      (speedbar)
 ))
 
 ;;; ツールバーを非表示
