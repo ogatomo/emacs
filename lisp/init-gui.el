@@ -45,7 +45,7 @@
       (define-key global-map [C-tab] 'other-frame)
 
       ;; スクロールバーを非表示
-      (scroll-bar-mode nil)
+      (scroll-bar-mode -1)
 
       ;; スクロールを１行づつ
       (setq scroll-step 1)
@@ -54,7 +54,7 @@
       (setq frame-title-format (format "%%f"))
 
       ;; ウィンドウの透明化
-      (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
+      ; (add-to-list 'default-frame-alist '(alpha . (0.90 0.90)))
 
       ;; フォントセットを作る
       (let* ((fontset-name "myfonts") ; フォントセットの名前
