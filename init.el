@@ -17,7 +17,7 @@
 (load "init-guide-key")
 (load "init-dired")
 (load "init-google-translate")
-(load "init-persp-mode")
+;(load "init-persp-mode")
 
 (require 'quickrun)
 (require 'undo-tree)
